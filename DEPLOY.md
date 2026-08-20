@@ -9,17 +9,64 @@
 | 托管 | GitHub Pages（`main` 分支根目录，免费，自带 HTTPS） |
 | 搜索引擎 | **暂不收录**（各页 `<meta name="robots" content="noindex">` + `robots.txt` 全站 Disallow） |
 
+### 这个链接会一直有效
+
+GitHub Pages 不是需要保活的服务器进程，是 CDN 上的静态文件。**只要仓库还在、还是公开的、Pages 还开着，链接就永久可用**，不会过期、不会因为没人访问而休眠，也不花钱。
+
+会让它挂掉的只有三件事：
+
+1. 仓库被删除，或被改成 private（免费版 Pages 需要公开仓库）
+2. Pages 在 Settings 里被手动关掉
+3. GitHub 自身故障（罕见，见 https://www.githubstatus.com）
+
+这三件事都不会自己发生。为防万一，已加自动监测（见下）。
+
 ### 更新网站
 
 改完文件后：
 
 ```bash
+node tools/check-site.js   # 先自检，有错会拦下来
 git add -A
 git commit -m "改了什么"
 git push
 ```
 
-推送后约 1 分钟自动重新部署，不需要任何额外操作。
+推送后约 1 分钟自动重新部署，不需要任何额外操作。合作伙伴刷新页面就能看到新版本。
+
+### 自动化闸门
+
+仓库里配了 [`.github/workflows/checks.yml`](.github/workflows/checks.yml)，两条独立的链路：
+
+| 触发 | 做什么 | 失败时 |
+|---|---|---|
+| 每次 `push` / PR | 跑 `tools/check-site.js` 十项自检 | Actions 标红，你会收到 GitHub 邮件 |
+| 每 6 小时 + 手动 | 探测线上 4 个页面 + CSS/JS 是否返回 200 | **自动开一个带 `uptime` 标签的 issue**；恢复后自动评论并关闭 |
+
+想立刻手动探一次：
+
+```bash
+gh workflow run checks.yml
+gh run list --workflow=checks.yml --limit 1
+```
+
+`tools/check-site.js` 检查的十项：本地资源引用是否存在 · 跨页锚点 · 同页锚点 · 块级标签配平 · `<img>` 是否有 alt · 双语开关与 i18n.js 是否齐全 · 必备 meta · 真实邮箱有没有漏进可见文字 · 案例筛选器计数与卡片数是否一致 · JS 语法 · noindex 与 robots.txt 是否自洽。
+
+> 绑定自定义域名后，记得把 `checks.yml` 里的 `SITE_URL` 改成新域名，否则监测的还是旧地址。
+
+### 合作伙伴怎么提建议
+
+链接直接发即可，不需要 GitHub 账号就能看。收集建议的两种方式：
+
+- **他们有 GitHub**：让他们去 https://github.com/alanhuang116/acadvance-education/issues 开 issue，改动有迹可循
+- **他们没有**：口头/微信收集后转给我，我改完 push，链接内容即时更新
+
+每次改动都是一个 git commit，`git log --oneline` 能看全部历史，任何一版都能回退：
+
+```bash
+git log --oneline          # 看历史
+git revert <commit-id>     # 撤掉某次改动（会生成一个新 commit，安全）
+```
 
 ### 正式对外前，解除收录限制
 
