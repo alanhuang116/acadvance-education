@@ -1,0 +1,4 @@
+# 暂不收录：站内仍有示例内容。
+# 正式上线时把下面两行换成 "Allow: /"，并删除各页 <meta name="robots" content="noindex">。
+User-agent: *
+Disallow: /

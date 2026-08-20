@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="CU">
+  <g fill="none" stroke="#12203A" stroke-width="1.7" stroke-linejoin="round" color="#12203A">
+    <path d="M20 9h56a11 11 0 0 1 11 11v56a11 11 0 0 1-11 11H20A11 11 0 0 1 9 76V20A11 11 0 0 1 20 9Z"/>
+    <path d="M30 54.5h36" stroke-opacity=".55"/>
+    <path d="M48 61 41 74M48 61l7 13M43.6 70.5h8.8" stroke-linecap="round"/>
+  </g>
+  <text x="48" y="45" text-anchor="middle" dominant-baseline="middle"
+        font-family="Georgia, 'Times New Roman', 'Songti SC', serif"
+        font-size="27" letter-spacing="1.5"
+        fill="#12203A">CU</text>
+</svg>
