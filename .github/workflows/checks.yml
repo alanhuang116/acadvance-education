@@ -1,0 +1,118 @@
+name: 站点校验与在线监测
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # 每 6 小时探测一次线上可用性
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  # 绑定自定义域名后，把这里改成 https://acadvanceeducation.com
+  SITE_URL: https://alanhuang116.github.io/acadvance-education
+
+jobs:
+  # ── 每次 push：内容自检，坏版本别上线 ──────────────────────────
+  validate:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 站点自检
+        run: node tools/check-site.js
+
+  # ── 定时 + 手动：线上四个页面是否还活着 ────────────────────────
+  uptime:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 探测线上页面
+        id: probe
+        run: |
+          FAILED=""
+          for p in "/" "/services.html" "/cases.html" "/about.html" \
+                   "/assets/css/site.css" "/assets/js/site.js"; do
+            CODE=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 --retry 2 "${SITE_URL}${p}" || echo "000")
+            echo "${CODE}  ${SITE_URL}${p}"
+            if [ "$CODE" != "200" ]; then
+              FAILED="${FAILED}- \`${p}\` → HTTP ${CODE}"$'\n'
+            fi
+          done
+          if [ -n "$FAILED" ]; then
+            {
+              echo "failed<<EOF"
+              echo "$FAILED"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 有异常则开 issue 通知
+        if: steps.probe.outputs.failed != ''
+        uses: actions/github-script@v7
+        env:
+          FAILED: ${{ steps.probe.outputs.failed }}
+          SITE_URL: ${{ env.SITE_URL }}
+        with:
+          script: |
+            const title = '🔴 网站不可访问';
+            const body = [
+              `探测时间：${new Date().toISOString()}`,
+              `站点：${process.env.SITE_URL}`,
+              '',
+              '**以下地址未返回 200：**',
+              '',
+              process.env.FAILED,
+              '---',
+              '排查顺序：',
+              '1. 仓库 Settings → Pages 是否仍启用、分支是否为 `main`',
+              '2. 仓库是否被改成 private（免费版 Pages 需要公开仓库）',
+              '3. 绑定了自定义域名的话，检查 DNS 与证书是否过期',
+              '4. https://www.githubstatus.com 看是否 GitHub 侧故障',
+            ].join('\n');
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'uptime',
+            });
+
+            if (open.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['uptime'],
+              });
+            }
+
+      - name: 恢复后自动关闭 issue
+        if: steps.probe.outputs.failed == ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'uptime',
+            });
+            for (const i of open) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: i.number,
+                body: `✅ 已恢复正常（${new Date().toISOString()}），自动关闭。`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: i.number, state: 'closed',
+              });
+            }
