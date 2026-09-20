@@ -728,7 +728,16 @@ function patchNumbers(file, src) {
 }
 
 /* 静态资源版本号：内容哈希，改了文件链接就变，绕过 GitHub Pages 的 10 分钟缓存 */
-const ASSETS = ['assets/css/base.css', 'assets/css/site.css', 'assets/js/i18n.js', 'assets/js/site.js'];
+const ASSETS = ['assets/css/base.css', 'assets/css/site.css', 'assets/css/apple.css', 'assets/js/i18n.js', 'assets/js/site.js'];
+
+/* v2 皮肤层：确保每页在 site.css 之后引入 apple.css（已存在则跳过） */
+function ensureSkin(src) {
+  if (src.indexOf('assets/css/apple.css') !== -1) return src;
+  return src.replace(
+    /(<link rel="stylesheet" href="assets\/css\/site\.css[^"]*">)/,
+    '$1\n<link rel="stylesheet" href="assets/css/apple.css">'
+  );
+}
 const ver = {};
 ASSETS.forEach((a) => {
   ver[a] = crypto.createHash('md5').update(fs.readFileSync(path.join(root, a))).digest('hex').slice(0, 8);
@@ -762,6 +771,7 @@ for (const [file, jobs] of Object.entries(PLAN)) {
   }
   src = patchNumbers(file, src);
   src = patchMisc(file, src);
+  src = ensureSkin(src);
   src = stampAssets(src);
   fs.writeFileSync(p, src, 'utf8');
   console.log(`  ${file.padEnd(14)} ${jobs.map((j) => j.key).join(' · ')}`);

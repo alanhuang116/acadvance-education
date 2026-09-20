@@ -398,6 +398,77 @@
     }, { passive: true });
   }
 
+  /* ---------- 分段式筛选器：白色滑块跟着激活项走 ---------- */
+  function segmented() {
+    $('.filters').forEach(function (bar) {
+      var thumb = document.createElement('span');
+      thumb.className = 'filters__thumb';
+      thumb.setAttribute('aria-hidden', 'true');
+      bar.insertBefore(thumb, bar.firstChild);
+
+      function move() {
+        var active = $('.filter.is-active', bar);
+        if (!active) return;
+        var b = bar.getBoundingClientRect();
+        var a = active.getBoundingClientRect();
+        thumb.style.width = a.width + 'px';
+        thumb.style.height = a.height + 'px';
+        thumb.style.transform = 'translate(' + (a.left - b.left) + 'px,' + (a.top - b.top) + 'px)';
+        bar.classList.add('has-thumb');
+      }
+      // 先让初始定位不带动画
+      thumb.style.transition = 'none';
+      move();
+      requestAnimationFrame(function () { thumb.style.transition = ''; });
+
+      $('.filter', bar).forEach(function (btn) {
+        btn.addEventListener('click', function () { requestAnimationFrame(move); });
+      });
+      window.addEventListener('resize', move);
+      document.addEventListener('acadvance:langchange', function () { setTimeout(move, 30); });
+    });
+  }
+
+  /* ---------- 方法论流程：滚动堆叠，被压住的卡片逐渐缩小变淡 ---------- */
+  function stackFlow() {
+    var steps = $('.flow__step');
+    if (steps.length < 2 || reduced) return;
+    var ticking = false;
+    function frame() {
+      steps.forEach(function (el, i) {
+        var next = steps[i + 1];
+        if (!next) { el.style.setProperty('--stack-scale', '1'); el.style.setProperty('--stack-opacity', '1'); return; }
+        var r = el.getBoundingClientRect();
+        var n = next.getBoundingClientRect();
+        // 下一张顶部离本张顶部越近，本张缩得越多
+        var p = Math.min(Math.max((r.top + r.height - n.top) / r.height, 0), 1);
+        el.style.setProperty('--stack-scale', (1 - p * 0.06).toFixed(3));
+        el.style.setProperty('--stack-opacity', (1 - p * 0.35).toFixed(3));
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+    }, { passive: true });
+    frame();
+  }
+
+  /* ---------- 磁吸按钮：主按钮微微朝指针偏移 ---------- */
+  function magnetic() {
+    if (reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    $('.btn--gold').forEach(function (btn) {
+      var rect = null, STRENGTH = 0.22;
+      btn.addEventListener('mouseenter', function () { rect = btn.getBoundingClientRect(); });
+      btn.addEventListener('mousemove', function (e) {
+        if (!rect) rect = btn.getBoundingClientRect();
+        var dx = (e.clientX - (rect.left + rect.width / 2)) * STRENGTH;
+        var dy = (e.clientY - (rect.top + rect.height / 2)) * STRENGTH;
+        btn.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + (dy - 2).toFixed(1) + 'px) scale(1.03)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; rect = null; });
+    });
+  }
+
   /* ---------- 当前页导航高亮 ---------- */
   function activeNav() {
     var here = location.pathname.split('/').pop() || 'index.html';
@@ -409,7 +480,7 @@
 
   function boot() {
     nav(); burger(); marquee(); reveal(); counters();
-    faq(); filters(); scrollUi(); form(); activeNav(); tilt(); caseArchive(); parallax();
+    faq(); filters(); scrollUi(); form(); activeNav(); tilt(); caseArchive(); parallax(); segmented(); stackFlow(); magnetic();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
