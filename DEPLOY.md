@@ -83,6 +83,18 @@ git revert <commit-id>     # 撤掉某次改动（会生成一个新 commit，�
 
 ---
 
+## 版本切换：v2 Cupertino ⇄ v1 Classic
+
+现版本是 **v2「Cupertino」**：苹果式卡片化皮肤层，全部在 `assets/css/apple.css` 一个文件里，内容与数据管线与 v1 完全相同。
+
+| 想要 | 做法 |
+|---|---|
+| 回到 v1 深墨蓝衬线版（保留所有新内容） | 把 `tools/build.js` 里 `ASSETS` 数组中的 `assets/css/apple.css` 删掉，四个 HTML 里那行 `<link … apple.css>` 也删掉，`node tools/build.js` 后 push |
+| 回到打标签时的完整 v1 快照 | `git checkout v1-classic -- .` 然后 commit、push（会连内容一起回到当时状态） |
+| 两版并存给伙伴对比 | 说一声，我可以把 v1 部署到 `/classic/` 子路径 |
+
+---
+
 ## 一、买域名（GoDaddy / Namecheap）
 
 推荐 **Namecheap**：`.com` 首年约 $10、续费约 $15，**自带免费邮件转发**——正好用来把 `admissions@acadvanceeducation.com` 转到你的 Gmail。GoDaddy 首年常有 $1 促销，但续费贵不少，且邮件转发要另外买。
