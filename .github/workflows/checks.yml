@@ -15,7 +15,7 @@ permissions:
 
 env:
   # 绑定自定义域名后，把这里改成 https://acadvanceeducation.com
-  SITE_URL: https://alanhuang116.github.io/acadvance-education
+  SITE_URL: https://acadvances.com
 
 jobs:
   # ── 每次 push：内容自检，坏版本别上线 ──────────────────────────
