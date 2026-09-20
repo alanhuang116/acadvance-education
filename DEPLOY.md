@@ -5,6 +5,7 @@
 | 项 | 值 |
 |---|---|
 | 仓库 | https://github.com/alanhuang116/acadvance-education （公开） |
+| 正式域名 | acadvances.com（GoDaddy，待 DNS 指向后绑定） |
 | 临时网址 | https://alanhuang116.github.io/acadvance-education/ |
 | 托管 | GitHub Pages（`main` 分支根目录，免费，自带 HTTPS） |
 | 搜索引擎 | **暂不收录**（各页 `<meta name="robots" content="noindex">` + `robots.txt` 全站 Disallow） |
@@ -95,65 +96,87 @@ git revert <commit-id>     # 撤掉某次改动（会生成一个新 commit，�
 
 ---
 
-## 一、买域名（GoDaddy / Namecheap）
+## 一、域名：acadvances.com（GoDaddy）
 
-推荐 **Namecheap**：`.com` 首年约 $10、续费约 $15，**自带免费邮件转发**——正好用来把 `admissions@acadvanceeducation.com` 转到你的 Gmail。GoDaddy 首年常有 $1 促销，但续费贵不少，且邮件转发要另外买。
+已于 2026-09 在 GoDaddy 注册，含 Microsoft 365 Email Essentials 一年。域名服务器为 `ns39/ns40.domaincontrol.com`。
 
-买之前先查 `acadvanceeducation.com` 是否还在（网站文案里已按这个域名写）。若被占用，备选：`acadvance.education`、`acadvance-edu.com`、`acadvanceeducation.org`。
-
-**结账时把所有加购项全部取消**——SSL 证书、网站建设、邮箱套餐、SEO 服务一个都不需要。唯一值得留的是 **Domain Privacy（WHOIS 隐私保护）**，Namecheap 免费送，GoDaddy 收费但建议加，否则你的姓名地址电话会公开可查。
+站内所有品牌邮箱已改为 `admissions@acadvances.com`；表单实际收件箱仍是 `alanhuang116@gmail.com`，等 M365 邮箱开通后可切过去（见第四节）。
 
 ---
 
-## 二、把域名指向网站
+## 二、在 GoDaddy 改 DNS（你来操作，约 3 分钟）
 
-买完后进域名管理后台的 **DNS / 域名解析**，删掉注册商默认塞的停放页记录（通常是一条指向 parkingpage 的 A 或 CNAME），然后加下面 5 条：
+登录 GoDaddy → **My Products** → 找到 `acadvances.com` → 右侧 **DNS** → **Manage DNS**。
 
-| 类型 | 主机记录 | 值 | TTL |
+### 1. 删掉两条停放记录
+
+| Type | Name | 当前值 | 操作 |
 |---|---|---|---|
-| A | `@` | `185.199.108.153` | 自动 |
-| A | `@` | `185.199.109.153` | 自动 |
-| A | `@` | `185.199.110.153` | 自动 |
-| A | `@` | `185.199.111.153` | 自动 |
-| CNAME | `www` | `alanhuang116.github.io` | 自动 |
+| A | `@` | `13.248.243.5` 之类的 Parked 地址 | **删除** |
+| CNAME | `www` | `acadvances.com` 或 Parked | **删除** |
 
-> 主机记录填 `@` 表示根域名。Namecheap 后台叫 **Advanced DNS**，GoDaddy 叫 **DNS 管理**。CNAME 的值末尾**不要**加 `/acadvance-education`，只填到 `.github.io` 为止。
+> GoDaddy 有时把停放显示为 "Forwarding"，那就到 **Forwarding** 区块把域名转发也一并关掉，否则会覆盖 A 记录。
+
+### 2. 新增五条
+
+| Type | Name | Value | TTL |
+|---|---|---|---|
+| A | `@` | `185.199.108.153` | 1 Hour |
+| A | `@` | `185.199.109.153` | 1 Hour |
+| A | `@` | `185.199.110.153` | 1 Hour |
+| A | `@` | `185.199.111.153` | 1 Hour |
+| CNAME | `www` | `alanhuang116.github.io` | 1 Hour |
+
+> GoDaddy 的 CNAME 值末尾会自动补点，填 `alanhuang116.github.io` 即可，**不要**加 `/acadvance-education`。
+
+### 3. 绝对不要动的记录
+
+Microsoft 365 邮箱会自己加这些，删掉邮箱就废了：
+
+- **MX** → `…mail.protection.outlook.com`
+- **CNAME** `autodiscover` → `autodiscover.outlook.com`
+- **TXT** `@` → `v=spf1 include:spf.protection.outlook.com -all`
+- **TXT/CNAME** 以 `_dmarc` / `selector1._domainkey` / `selector2._domainkey` 开头的
+
+改 A 和 CNAME(www) 不影响邮件收发，这两类记录互不干扰。
 
 ---
 
-## 三、在 GitHub 侧绑定域名
+## 三、我来绑定（你改完 DNS 说一声）
 
-DNS 填完等 10 分钟到 1 小时生效，然后告诉我域名，我用一条命令绑定；或者你自己操作：
+```bash
+node tools/bind-domain.js acadvances.com --wait
+```
 
-仓库 → **Settings** → **Pages** → **Custom domain** 填 `acadvanceeducation.com` → Save。
-等它下方出现 ✅ DNS check successful，再勾选 **Enforce HTTPS**（证书签发需要几分钟到几小时，勾不上就等等再来）。
+脚本会自己等 DNS 生效，然后：核对 A 记录 → 写 CNAME 文件 → 更新 sitemap / robots / CI 监测地址 → 调 GitHub API 设 custom domain → 等 Let's Encrypt 证书签发后开启强制 HTTPS → 实测三个地址。
 
-绑定后 `https://alanhuang116.github.io/acadvance-education/` 会自动跳转到新域名。
+**顺序不能反**：必须先改 DNS 再绑定。反过来 github.io 会跳转到一个还没解析到 GitHub 的域名，网站看起来像挂了。
+
+绑定完成后 `https://alanhuang116.github.io/acadvance-education/` 会自动跳到 `https://acadvances.com/`。
 
 ---
 
-## 四、邮件转发（重要）
+## 四、Microsoft 365 邮箱
 
-网站上显示的是 `admissions@acadvanceeducation.com`，但这个邮箱现在**并不存在**——访客照着手打发信会退回。买完域名务必配一条转发：
+购买时附带的 Email Essentials 需要单独走一次设置：GoDaddy → **My Products** → **Email & Office** → **Set up**，建一个邮箱，建议就用 `admissions@acadvances.com`（网站上显示的就是这个）。
 
-**Namecheap**：域名管理 → Domain 标签页 → 下方 **Redirect Email** → 加一条
-`admissions` → `alanhuang116@gmail.com`
+设置过程中 GoDaddy 会自动往 DNS 里写 MX / SPF / autodiscover 等记录，不用手动加。
 
-**GoDaddy**：没有免费转发，用 Cloudflare Email Routing 代替——把域名 NS 改到 Cloudflare（免费），在 Email → Email Routing 里加同样的转发规则。
+**邮箱能收信之后**，把 `content/site.js` 里这一行
 
-配好之后，把 [about.html](about.html) 表单上的这一行
-
-```html
-data-mailto="alanhuang116@gmail.com"
+```js
+email: 'alanhuang116@gmail.com',
 ```
 
 改成
 
-```html
-data-mailto="admissions@acadvanceeducation.com"
+```js
+email: 'admissions@acadvances.com',
 ```
 
-这样 Gmail 地址就彻底不出现在网站源码里了，而信照样收得到。
+然后 `node tools/build.js && node tools/check-site.js` 再 push。这样个人 Gmail 就彻底不出现在网站源码里了，预约信直接进品牌邮箱。
+
+> 自检脚本会核对表单的 `data-mailto` 与 `content/site.js` 一致，改漏了会报错拦下。
 
 ---
 

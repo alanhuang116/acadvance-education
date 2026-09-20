@@ -2,8 +2,8 @@
 /**
  * 自定义域名绑定 —— DNS 指过来之后跑这一条就够了。
  *
- *   node tools/bind-domain.js acadvanceeducation.com
- *   node tools/bind-domain.js acadvanceeducation.com --wait    # DNS 还没生效时先等
+ *   node tools/bind-domain.js acadvances.com
+ *   node tools/bind-domain.js acadvances.com --wait    # DNS 还没生效时先等
  *
  * 做四件事：
  *   1. 核对域名的 A 记录是否已指向 GitHub Pages
