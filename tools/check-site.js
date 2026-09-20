@@ -81,19 +81,45 @@ for (const p of Object.keys(src)) {
   }
 }
 
-/* ---------- 8. 案例筛选器数量与卡片是否对得上 ---------- */
-if (src['cases.html']) {
-  const s = src['cases.html'];
-  const counts = {};
-  for (const m of s.matchAll(/data-tags="([^"]*)"/g)) {
-    for (const t of m[1].trim().split(/\s+/)) counts[t] = (counts[t] || 0) + 1;
-  }
-  const total = (s.match(/data-tags="/g) || []).length;
-  for (const m of s.matchAll(/data-filter="([^"]+)"[\s\S]{0,220}?class="filter__count">(\d+)</g)) {
-    const [, key, shown] = m;
-    const actual = key === 'all' ? total : (counts[key] || 0);
-    if (Number(shown) !== actual) {
-      fail(`cases.html：筛选器「${key}」标了 ${shown}，实际有 ${actual} 张卡片`);
+/* ---------- 8. 每组筛选器的计数与实际条目是否一致 ----------
+   同页可有多组：data-filter-bar="键" 与 data-filter-grid="键" 配对。
+   每组的统计范围限定在该 grid 内（到下一个 grid 或下一个区块注释为止）。
+-------------------------------------------------------------------- */
+for (const p of Object.keys(src)) {
+  const s2 = src[p];
+
+  for (const barM of s2.matchAll(/data-filter-bar="([^"]*)"/g)) {
+    const key = barM[1];
+
+    // 该 bar 的按钮区：从 bar 开始到它所在 div 结束（以下一个 data-filter-grid 为界）
+    const barStart = barM.index;
+    const gridStart = s2.indexOf('data-filter-grid="' + key + '"');
+    if (gridStart === -1) { fail(`${p}：筛选器「${key}」找不到配对的 data-filter-grid`); continue; }
+
+    const barBlock = s2.slice(barStart, gridStart);
+
+    // 该 grid 的范围：到下一个 data-filter-grid 或下一个区块注释为止
+    const nextGrid = s2.indexOf('data-filter-grid="', gridStart + 10);
+    const nextSection = s2.indexOf('<!-- ====', gridStart);
+    let gridEnd = s2.length;
+    if (nextGrid !== -1) gridEnd = Math.min(gridEnd, nextGrid);
+    if (nextSection !== -1) gridEnd = Math.min(gridEnd, nextSection);
+    const gridBlock = s2.slice(gridStart, gridEnd);
+
+    const counts = {};
+    let total = 0;
+    for (const m of gridBlock.matchAll(/data-tags="([^"]*)"/g)) {
+      total++;
+      for (const t of m[1].trim().split(/\s+/)) counts[t] = (counts[t] || 0) + 1;
+    }
+    if (!total) { warn(`${p}：筛选组「${key}」的 grid 内没有任何 data-tags 条目`); continue; }
+
+    for (const m of barBlock.matchAll(/data-filter="([^"]+)"[\s\S]{0,240}?class="filter__count">(\d+)</g)) {
+      const [, tag, shown] = m;
+      const actual = tag === 'all' ? total : (counts[tag] || 0);
+      if (Number(shown) !== actual) {
+        fail(`${p}：筛选组「${key}」的「${tag}」标了 ${shown}，实际 ${actual} 条`);
+      }
     }
   }
 }

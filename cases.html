@@ -103,7 +103,7 @@
 <section class="section">
   <div class="container">
 
-    <div class="filters" data-filter-bar role="group" aria-label="案例筛选" data-en-aria-label="Filter case studies">
+    <div class="filters" data-filter-bar="cases" role="group" aria-label="案例筛选" data-en-aria-label="Filter case studies">
       <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
         <span data-en="All">全部</span><span class="filter__count">6</span>
       </button>
@@ -117,7 +117,7 @@
         <span data-en="Doctoral">博士去向</span><span class="filter__count">1</span>
       </button>
     </div>
-    <div class="grid grid--3" data-filter-grid>
+    <div class="grid grid--3" data-filter-grid="cases">
 
       <!-- 1 -->
       <article class="card card--hover case" data-tags="undergrad us" data-reveal>
@@ -240,10 +240,165 @@
         </div>
       </article>
 
-      <p class="case-grid__empty" hidden data-en="No case studies match this filter yet. Try another category.">
+      <p class="case-grid__empty" data-filter-empty hidden data-en="No case studies match this filter yet. Try another category.">
         当前筛选条件下暂无案例，请尝试其他分类。
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ============================ 项目档案 ============================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal data-en="Placement Log">项目档案</span>
+      <h2 class="display-2" data-reveal data-en="Fourteen placements, <span class=&quot;accent-italic&quot;>as they were logged</span>.">
+        十四个课题，<span class="accent-italic">档案原样</span>
+      </h2>
+      <p class="lede" data-reveal
+         data-en="Admissions outcomes are the tail end of a long process. This is the middle of it — the actual projects students worked on, what they produced, and how long it took. No student is named; the work is.">
+        录取结果是一段长过程的末端。这里是中间那一段：学生真正做的课题、产出了什么、花了多久。学生不具名，工作具名。
+      </p>
+    </div>
+
+    <div class="filters" data-filter-bar="records" role="group" aria-label="按方向筛选项目" data-en-aria-label="Filter placements by field">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
+          <span data-en="All">全部</span><span class="filter__count">14</span>
+        </button>
+        <button class="filter" type="button" data-filter="health" aria-pressed="false">
+          <span data-en="Immunology &amp; Public Health">免疫与公卫</span><span class="filter__count">4</span>
+        </button>
+        <button class="filter" type="button" data-filter="eng" aria-pressed="false">
+          <span data-en="Engineering &amp; Devices">工程与器件</span><span class="filter__count">2</span>
+        </button>
+        <button class="filter" type="button" data-filter="data" aria-pressed="false">
+          <span data-en="Data &amp; Policy">数据与政策</span><span class="filter__count">3</span>
+        </button>
+        <button class="filter" type="button" data-filter="ai" aria-pressed="false">
+          <span data-en="Computing &amp; AI">计算与 AI</span><span class="filter__count">3</span>
+        </button>
+        <button class="filter" type="button" data-filter="chem" aria-pressed="false">
+          <span data-en="Chemistry &amp; Materials">化学与材料</span><span class="filter__count">3</span>
+        </button>
+    </div>
+
+    <div data-filter-grid="records">
+      <div class="records__head" aria-hidden="true">
+        <span data-en="Ref">编号</span>
+        <span data-en="Project">课题</span>
+        <span data-en="Host &amp; field">机构与方向</span>
+        <span data-en="Duration">周期</span>
+        <span data-en="Student output">学生产出</span>
+      </div>
+      <div class="records">
+        <div class="record" data-tags="health">
+          <span class="record__id">AV-26-01</span>
+          <h3 class="record__title" data-en="Waning of mucosal antibody after respiratory vaccination">呼吸道疫苗接种后黏膜抗体的时间衰减</h3>
+          <div class="record__host">Emory University<small data-en="Immunology">免疫学</small></div>
+          <span class="record__dur" data-en="16 wks · remote">16 周 · 可远程</span>
+          <div class="record__out" data-en="Cleaned a three-year follow-up dataset; produced <b>2 main figures</b>">清洗三年随访数据集，产出 <b>2 张主图</b></div>
+        </div>
+        <div class="record" data-tags="health">
+          <span class="record__id">AV-26-02</span>
+          <h3 class="record__title" data-en="Coverage gaps in community diabetes screening">社区糖尿病筛查的覆盖率缺口分析</h3>
+          <div class="record__host">Emory University<small data-en="Public Health">公共卫生</small></div>
+          <span class="record__dur" data-en="12 wks · remote">12 周 · 可远程</span>
+          <div class="record__out" data-en="<b>One chapter</b> of a district evaluation report">区级评估报告 <b>一章</b></div>
+        </div>
+        <div class="record" data-tags="eng">
+          <span class="record__id">AV-26-03</span>
+          <h3 class="record__title" data-en="Motion-artefact correction for wearable heart-rate sensors">可穿戴心率传感器的运动伪影校正</h3>
+          <div class="record__host">University of Florida<small data-en="Biomedical Engineering">生物医学工程</small></div>
+          <span class="record__dur" data-en="20 wks · on-site">20 周 · 在地</span>
+          <div class="record__out" data-en="Correction algorithm + <b>three prototype iterations</b>">校正算法 + <b>器件原型三轮迭代</b></div>
+        </div>
+        <div class="record" data-tags="eng">
+          <span class="record__id">AV-26-04</span>
+          <h3 class="record__title" data-en="Settling behaviour of microplastics in irrigation water">灌溉水中微塑料的沉降行为</h3>
+          <div class="record__host">University of Florida<small data-en="Environmental Engineering">环境工程</small></div>
+          <span class="record__dur" data-en="14 wks · on-site">14 周 · 在地</span>
+          <div class="record__out" data-en="Experimental dataset + <b>the methods section</b>">实验数据集 + 论文 <b>方法部分</b></div>
+        </div>
+        <div class="record" data-tags="data">
+          <span class="record__id">AV-26-05</span>
+          <h3 class="record__title" data-en="Regression-discontinuity evaluation of a state school-funding reform">州级教育经费改革的断点回归评估</h3>
+          <div class="record__host">George Mason University<small data-en="Public Policy">公共政策</small></div>
+          <span class="record__dur" data-en="18 wks · remote">18 周 · 可远程</span>
+          <div class="record__out" data-en="Policy brief + <b>reproducible code</b>">政策简报 + <b>可复现代码</b></div>
+        </div>
+        <div class="record" data-tags="data">
+          <span class="record__id">AV-26-06</span>
+          <h3 class="record__title" data-en="Constructing residential-segregation indices from commuting data">通勤数据中的居住隔离指标构建</h3>
+          <div class="record__host">George Mason University<small data-en="Data Science">数据科学</small></div>
+          <span class="record__dur" data-en="16 wks · remote">16 周 · 可远程</span>
+          <div class="record__out" data-en="Index codebase + <b>interactive visualisation</b>">指标代码库 + <b>交互可视化</b></div>
+        </div>
+        <div class="record" data-tags="ai">
+          <span class="record__id">AV-26-07</span>
+          <h3 class="record__title" data-en="Few-shot image classification in low-resource settings">低资源场景下的小样本图像分类</h3>
+          <div class="record__host">香港理工大学<small data-en="Artificial Intelligence">人工智能</small></div>
+          <span class="record__dur" data-en="24 wks · remote">24 周 · 可远程</span>
+          <div class="record__out" data-en="<b>Co-authorship</b> on a conference paper">会议论文 <b>共同署名</b></div>
+        </div>
+        <div class="record" data-tags="ai">
+          <span class="record__id">AV-26-08</span>
+          <h3 class="record__title" data-en="Anomaly detection in structural health monitoring">结构健康监测中的异常信号检测</h3>
+          <div class="record__host">香港理工大学<small data-en="Computing">计算</small></div>
+          <span class="record__dur" data-en="20 wks · hybrid">20 周 · 混合</span>
+          <div class="record__out" data-en="Detection module <b>merged into the group’s main branch</b>">检测模块 <b>并入课题组主干</b></div>
+        </div>
+        <div class="record" data-tags="chem">
+          <span class="record__id">AV-26-09</span>
+          <h3 class="record__title" data-en="Humidity-stability screening of perovskite thin films">钙钛矿薄膜的湿度稳定性筛选</h3>
+          <div class="record__host">新加坡国立大学<small data-en="Materials Science">材料科学</small></div>
+          <span class="record__dur" data-en="22 wks · on-site">22 周 · 在地</span>
+          <div class="record__out" data-en="Screening dataset + <b>conference poster</b>">筛选数据集 + <b>会议海报</b></div>
+        </div>
+        <div class="record" data-tags="chem">
+          <span class="record__id">AV-26-10</span>
+          <h3 class="record__title" data-en="Condition optimisation for an organocatalytic route">有机催化反应路线的条件优化</h3>
+          <div class="record__host">新加坡国立大学<small data-en="Chemistry">化学</small></div>
+          <span class="record__dur" data-en="18 wks · on-site">18 周 · 在地</span>
+          <div class="record__out" data-en="Synthetic route log + <b>the methods section</b>">合成路线记录 + 论文 <b>方法部分</b></div>
+        </div>
+        <div class="record" data-tags="health ai">
+          <span class="record__id">AV-26-11</span>
+          <h3 class="record__title" data-en="Cross-site generalisation of a neuroimaging segmentation model">神经影像分割模型的跨中心泛化</h3>
+          <div class="record__host">Emory University<small data-en="Biomedical Imaging">生物医学</small></div>
+          <span class="record__dur" data-en="20 wks · remote">20 周 · 可远程</span>
+          <div class="record__out" data-en="Reproduction codebase + <b>benchmark report</b>">复现代码库 + <b>评测报告</b></div>
+        </div>
+        <div class="record" data-tags="data">
+          <span class="record__id">AV-26-12</span>
+          <h3 class="record__title" data-en="Association between urban heat islands and emergency admissions">城市热岛与急诊就诊量的关联</h3>
+          <div class="record__host">George Mason University<small data-en="Health Economics">卫生经济</small></div>
+          <span class="record__dur" data-en="14 wks · remote">14 周 · 可远程</span>
+          <div class="record__out" data-en="Panel-data analysis + <b>policy brief</b>">面板数据分析 + <b>政策简报</b></div>
+        </div>
+        <div class="record" data-tags="chem">
+          <span class="record__id">AV-26-13</span>
+          <h3 class="record__title" data-en="Quantifying self-assembled polymer morphology from micrographs">高分子自组装形貌的显微图像定量</h3>
+          <div class="record__host">新加坡国立大学<small data-en="Materials Science">材料科学</small></div>
+          <span class="record__dur" data-en="16 wks · hybrid">16 周 · 混合</span>
+          <div class="record__out" data-en="Image-analysis pipeline + <b>annotated dataset</b>">图像分析流程 + <b>标注数据集</b></div>
+        </div>
+        <div class="record" data-tags="health">
+          <span class="record__id">AV-26-14</span>
+          <h3 class="record__title" data-en="Spatial access to adolescent mental-health services">青少年心理健康服务可及性的空间分析</h3>
+          <div class="record__host">Emory University<small data-en="Public Health">公共卫生</small></div>
+          <span class="record__dur" data-en="12 wks · remote">12 周 · 可远程</span>
+          <div class="record__out" data-en="Access maps + <b>a report chapter</b>">可及性地图 + <b>报告章节</b></div>
+        </div>
+      </div>
+      <p class="records__empty" data-filter-empty hidden data-en="No placements in this field are open right now. Tell us the direction and we will ask the groups directly.">
+        该方向当前没有开放席位。告诉我们方向，我们直接去问课题组。
+      </p>
+    </div>
+
+    <p class="muted" style="margin-top:22px;font-size:.75rem;"
+       data-en="Entries are drawn from placements running in the 2025–26 cycle. Project titles are generalised at the request of the host groups; exact titles and the supervising mentor’s contact are disclosed to a family before a placement begins.">
+      条目取自 2025–26 周期在执行的课题。应课题组要求，标题作了泛化处理；确切标题与带教导师联系方式，在项目启动前向家庭披露。
+    </p>
   </div>
 </section>
 
@@ -252,7 +407,7 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow" data-reveal data-en="In Depth">深度复盘</span>
-      <h2 class="display-2" data-reveal data-en="Two files, <span class=&quot;accent-italic&quot;>opened up</span>.">两份档案，<span class="accent-italic">完整打开</span></h2>
+      <h2 class="display-2" data-reveal data-en="Three files, <span class=&quot;accent-italic&quot;>opened up</span>.">三份档案，<span class="accent-italic">完整打开</span></h2>
       <p class="lede" data-reveal
          data-en="Including the parts that did not work. A case study that contains no setbacks is a case study that has been edited.">
         包括那些没能奏效的部分。一个不含挫折的案例，是被修饰过的案例。
@@ -353,6 +508,56 @@
             <dt data-en="Outcome">结果</dt>
             <dd data-en="She applied on her own and was admitted to Princeton University. By her account the interview was almost entirely about the poster: the honest 'this was not strong enough to publish' proved more persuasive than a weak publication would have been.">
               她凭这份履历自行完成申请，最终录取 Princeton University。据她转述，面试几乎整场都在谈那张海报——「这份工作还不够格发表」这句诚实的话，比一篇勉强的论文更有说服力。
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 深度案例 C -->
+    <article class="narrative" data-reveal>
+      <div class="narrative__aside">
+        <img src="assets/img/logos/buffalo.svg" alt="University at Buffalo" width="64" height="64" style="opacity:.85;margin-bottom:20px;">
+        <h3 class="display-3">University at Buffalo</h3>
+        <p style="margin-top:10px;color:var(--gold-700);font-size:.875rem;letter-spacing:.04em;"
+           data-en="Doctoral · Fully funded">博士 · 全额奖学金</p>
+        <div class="cluster" style="margin-top:20px;gap:8px;">
+          <span class="pill" data-en="2 cycles">两个申请季</span>
+          <span class="pill" data-en="Non-elite undergraduate">非名校本科</span>
+          <span class="pill pill--gold" data-en="Funded offer">全奖录取</span>
+        </div>
+      </div>
+
+      <div>
+        <dl>
+          <div class="narrative__phase">
+            <dt data-en="Starting point">起点</dt>
+            <dd data-en="A mainland university outside the top tier, in the final year of an undergraduate degree. Solid grades, no publication, no laboratory with a name a US committee would recognise, and a first application cycle that had produced six rejections and no interviews.">
+              一所内地非重点高校，本科最后一年。成绩扎实，没有论文，所在实验室的名字美国委员会不会认得，上一个申请季投出去六份、零面试、全拒。
+            </dd>
+          </div>
+          <div class="narrative__phase">
+            <dt data-en="Diagnosis">诊断</dt>
+            <dd data-en="Not a weak student — an invisible one. Everything in the file was institutional (which university, which laboratory) and nothing was personal (which problem, whose idea). We also found the real obstacle: he had applied school-first, to departments where nobody worked on what he cared about.">
+              不是弱，是不可见。档案里所有东西都是机构属性——哪所大学、哪个实验室；没有一样是个人属性——哪个问题、谁的想法。我们还找到了真正的障碍：他按「学校优先」投的，那些系里根本没人做他关心的东西。
+            </dd>
+          </div>
+          <div class="narrative__phase">
+            <dt data-en="What we changed">调整</dt>
+            <dd data-en="Nine months on one remote computational placement, chosen because its question overlapped with code he had already written for himself. He rebuilt that code to a standard a stranger could run, wrote documentation, and the group merged it. That merge — a public, timestamped, verifiable act — did more for him than any certificate could.">
+              九个月，一个可远程的计算课题，之所以选它，是因为它的问题恰好和他自己早就写过的代码重叠。他把那份代码重建到「陌生人能跑起来」的标准，补齐文档，课题组把它合并了。这次合并——一个公开的、有时间戳的、可验证的动作——比任何证书都管用。
+            </dd>
+          </div>
+          <div class="narrative__phase">
+            <dt data-en="What went wrong">受挫</dt>
+            <dd data-en="He wanted to reapply to the same six departments. We said the analysis showed no funded advisor there working on his question, and that a seventh rejection would teach him nothing. He disagreed, applied to three of them anyway, and was rejected by all three. He was also admitted, with full funding, to a department we had found by searching for the problem rather than the ranking.">
+              他想再投同样那六个系。我们说分析结果是：那里没有一位有经费的导师在做他的问题，第七次被拒不会教会他任何事。他不同意，还是投了其中三个，三个全拒。与此同时，他被一个我们按「问题」而非「排名」检索出来的系录取，全额资助。
+            </dd>
+          </div>
+          <div class="narrative__phase">
+            <dt data-en="Outcome">结果</dt>
+            <dd data-en="A fully funded doctoral place, working with the advisor whose open problem his code had happened to address. We include this file because it is the least glamorous name on this page and the one we are most often asked about — and because the family made a decision we advised against, which is their right and belongs in the record.">
+              全额资助的博士席位，导师正是那位「待解问题恰好被他的代码碰上」的人。我们把这份档案放上来，是因为它是本页最不光鲜的一个校名，却是被问得最多的一个——也因为这个家庭做了一个我们不建议的决定，那是他们的权利，理应写进记录。
             </dd>
           </div>
         </dl>

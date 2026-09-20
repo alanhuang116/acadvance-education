@@ -156,35 +156,40 @@
     });
   }
 
-  /* ---------- 案例筛选 ---------- */
+  /* ---------- 筛选器 ----------
+     同页可多组：data-filter-bar="键" 与 data-filter-grid="键" 配对。
+     组内每个可筛选元素带 data-tags="标签1 标签2"，空态元素带 data-filter-empty。
+  --------------------------------------------------------------- */
   function filters() {
-    var bar = $('[data-filter-bar]');
-    var grid = $('[data-filter-grid]');
-    if (!bar || !grid) return;
+    $$('[data-filter-bar]').forEach(function (bar) {
+      var key = bar.getAttribute('data-filter-bar') || '';
+      var grid = $('[data-filter-grid="' + key + '"]');
+      if (!grid) return;
 
-    var cards = $$('[data-tags]', grid);
-    var empty = $('.case-grid__empty', grid);
+      var items = $$('[data-tags]', grid);
+      var empty = $('[data-filter-empty]', grid);
 
-    function applyFilter(key) {
-      var shown = 0;
-      cards.forEach(function (c) {
-        var tags = (c.dataset.tags || '').split(/\s+/);
-        var ok = key === 'all' || tags.indexOf(key) !== -1;
-        c.hidden = !ok;
-        if (ok) shown++;
-      });
-      if (empty) empty.hidden = shown !== 0;
-    }
-
-    $$('.filter', bar).forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        $$('.filter', bar).forEach(function (b) {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-pressed', 'false');
+      function apply(want) {
+        var shown = 0;
+        items.forEach(function (el) {
+          var tags = (el.dataset.tags || '').split(/\s+/);
+          var ok = want === 'all' || tags.indexOf(want) !== -1;
+          el.hidden = !ok;
+          if (ok) shown++;
         });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-pressed', 'true');
-        applyFilter(btn.dataset.filter);
+        if (empty) empty.hidden = shown !== 0;
+      }
+
+      $$('.filter', bar).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          $$('.filter', bar).forEach(function (o) {
+            o.classList.remove('is-active');
+            o.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-pressed', 'true');
+          apply(btn.dataset.filter);
+        });
       });
     });
   }
