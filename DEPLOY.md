@@ -137,14 +137,14 @@ DNS 填完等 10 分钟到 1 小时生效，然后告诉我域名，我用一条
 网站上显示的是 `admissions@acadvanceeducation.com`，但这个邮箱现在**并不存在**——访客照着手打发信会退回。买完域名务必配一条转发：
 
 **Namecheap**：域名管理 → Domain 标签页 → 下方 **Redirect Email** → 加一条
-`admissions` → `mengjin0808@gmail.com`
+`admissions` → `alanhuang116@gmail.com`
 
 **GoDaddy**：没有免费转发，用 Cloudflare Email Routing 代替——把域名 NS 改到 Cloudflare（免费），在 Email → Email Routing 里加同样的转发规则。
 
 配好之后，把 [about.html](about.html) 表单上的这一行
 
 ```html
-data-mailto="mengjin0808@gmail.com"
+data-mailto="alanhuang116@gmail.com"
 ```
 
 改成

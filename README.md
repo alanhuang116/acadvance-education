@@ -37,7 +37,7 @@
 | | 值 | 位置 |
 |---|---|---|
 | **显示** | `admissions@acadvanceeducation.com` | 链接文字、表单提示 |
-| **实际收件** | `mengjin0808@gmail.com` | `href="mailto:…"`、表单 `data-mailto` |
+| **实际收件** | `alanhuang116@gmail.com` | `href="mailto:…"`、表单 `data-mailto` |
 
 访客在 [about.html](about.html) 填完表单点提交，浏览器会打开他的邮件客户端，正文已按「姓名 / 电话 / 邮箱 / 学段 / 需求 / 学生兴趣」排好版，收件人是 Gmail，他只需点发送。
 
@@ -46,7 +46,7 @@
 1. 邮件客户端打开后，访客会在收件人栏看到真实的 Gmail 地址；页面源码里也能搜到。纯静态站没法彻底隐藏。
 2. 如果访客直接手打显示地址发信，那封信会退回——`admissions@acadvanceeducation.com` 目前并不存在。
 
-**两个问题都靠同一件事解决：去域名注册商后台开一条邮件转发规则**，`admissions@acadvanceeducation.com → mengjin0808@gmail.com`（Cloudflare、阿里云、GoDaddy 都免费提供）。开通后，把 [about.html](about.html) 表单上的 `data-mailto` 也改成品牌邮箱，Gmail 地址就彻底不出现在站上了。
+**两个问题都靠同一件事解决：去域名注册商后台开一条邮件转发规则**，`admissions@acadvanceeducation.com → alanhuang116@gmail.com`（Cloudflare、阿里云、GoDaddy 都免费提供）。开通后，把 [about.html](about.html) 表单上的 `data-mailto` 也改成品牌邮箱，Gmail 地址就彻底不出现在站上了。
 
 日后接后端（Formspree / 自建 API），给表单加 `data-endpoint="https://你的接口"` 即可优先走接口，`mailto` 自动降级为备用。
 

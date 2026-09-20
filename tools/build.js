@@ -482,7 +482,10 @@ function placesSection() {
       if (ms.length) marks.push(`<span class="place__mark place__mark--m" title="导师任教" data-en-title="Mentor on faculty">${ms.length} <i data-en="mentor${ms.length > 1 ? 's' : ''}">导师</i></span>`);
       if (rc) marks.push(`<span class="place__mark place__mark--r" title="在库课题" data-en-title="Live placements">${rc} <i data-en="placement${rc > 1 ? 's' : ''}">课题</i></span>`);
       if (dc) marks.push(`<span class="place__mark place__mark--d" title="学员录取" data-en-title="Students admitted">${dc} <i data-en="admitted">录取</i></span>`);
-      const field = ms.length ? `<span class="place__field" data-en="${ms.map((m) => m.fieldEn).join(' / ')}">${ms.map((m) => m.fieldZh).join(' / ')}</span>` : '';
+      // 同机构多位导师常属同一领域组，去重避免「生命与医学方向 / 生命与医学方向」
+      const fz = [...new Set(ms.map((m) => m.fieldZh))].join(' · ');
+      const fe = [...new Set(ms.map((m) => m.fieldEn))].join(' · ');
+      const field = ms.length ? `<span class="place__field" data-en="${fe}">${fz}</span>` : '';
       return `        <div class="place">
           ${crestImg(i, 44)}
           <div class="place__body">

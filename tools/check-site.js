@@ -75,9 +75,21 @@ for (const p of Object.keys(src)) {
   if (!/<meta name="description"/.test(s)) fail(`${p}：缺少 meta description`);
   if (!/<title>/.test(s)) fail(`${p}：缺少 <title>`);
 
-  /* ---------- 7. 联系方式一致性 ---------- */
-  if (/>mengjin0808@gmail\.com</.test(s)) {
-    warn(`${p}：真实收件邮箱出现在页面可见文字中（应只出现在 href / data-mailto）`);
+  /* ---------- 7. 联系方式一致性 ----------
+     真实收件箱只应出现在 href="mailto:" 与 data-mailto 里，
+     不应作为可见文字露出（页面显示的是品牌邮箱）。地址取自 content/site.js。
+  --------------------------------------------------------------- */
+  {
+    const SITE = require(path.join(root, 'content', 'site.js'));
+    const esc = SITE.email.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (new RegExp('>\\s*' + esc + '\\s*<').test(s)) {
+      warn(`${p}：真实收件邮箱 ${SITE.email} 出现在页面可见文字中（应只出现在 href / data-mailto）`);
+    }
+    // 表单的收件人必须与 content/site.js 一致
+    const mt = s.match(/data-mailto="([^"]+)"/);
+    if (mt && mt[1] !== SITE.email) {
+      fail(`${p}：表单 data-mailto 是 ${mt[1]}，content/site.js 规定为 ${SITE.email}`);
+    }
   }
 }
 

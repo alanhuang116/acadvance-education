@@ -302,7 +302,7 @@
           f.reset();
         })
         .catch(function () {
-          var addr = MAILTO || 'mengjin0808@gmail.com';
+          var addr = MAILTO || 'alanhuang116@gmail.com';
           var shown = SHOWN || addr;
           say(zh ? '提交失败，请稍后重试，或直接邮件至 <a href="mailto:' + addr + '">' + shown + '</a>。'
                  : 'Submission failed. Please retry, or email <a href="mailto:' + addr + '">' + shown + '</a>.');
