@@ -124,6 +124,23 @@ for (const p of Object.keys(src)) {
   }
 }
 
+/* ---------- 8b. 站点常量：成立年份等必须与 content/site.js 一致 ---------- */
+{
+  const SITE = require(path.join(root, 'content', 'site.js'));
+  const about = src['about.html'] || '';
+  const m = about.match(/<div class="stat__num"><span>(\d{4})<\/span><\/div>\s*<div class="stat__label" data-en="Founded"/);
+  if (!m) fail('about.html：找不到「机构成立年份」数据格');
+  else if (Number(m[1]) !== SITE.founded) fail(`about.html：成立年份写的是 ${m[1]}，content/site.js 规定为 ${SITE.founded}`);
+  // 其它任何页面都不该再出现别的四位年份被当作成立年
+  for (const p of Object.keys(src)) {
+    const stray = src[p].match(/成立于\s*(\d{4})|founded in (\d{4})/i);
+    if (stray) {
+      const y = Number(stray[1] || stray[2]);
+      if (y !== SITE.founded) fail(`${p}：正文里出现「成立于 ${y}」，与 content/site.js 的 ${SITE.founded} 不一致`);
+    }
+  }
+}
+
 /* ---------- 9. JS 语法 ---------- */
 for (const j of scripts) {
   try {

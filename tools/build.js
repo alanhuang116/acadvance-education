@@ -21,6 +21,7 @@ const RECORDS = require('../content/records.js');
 const DEST = require('../content/destinations.js');
 const FAQ = require('../content/faq.js');
 const CASES = require('../content/cases.js');
+const SITE = require('../content/site.js');
 const crypto = require('crypto');
 
 const byslug = Object.fromEntries(INST.map((i) => [i.slug, i]));
@@ -743,7 +744,8 @@ function stampAssets(src) {
 function patchMisc(file, src) {
   if (file === 'about.html') {
     src = src
-      .replace(/<div class="stat__num"><span>\d{4}<\/span><\/div>(\s*<div class="stat__label" data-en="Founded")/, `<div class="stat__num"><span>2024</span></div>$1`)
+      .replace(/<div class="stat__num"><span>\d{4}<\/span><\/div>(\s*<div class="stat__label" data-en="Founded")/, `<div class="stat__num"><span>${SITE.founded}</span></div>$1`)
+      .replace(/<span data-count="\d+">\d+<\/span>(<\/div>\s*<div class="stat__label" data-en="Families accepted per cycle")/, `<span data-count="${SITE.familiesPerCycle}">${SITE.familiesPerCycle}</span>$1`)
       .replace(/data-en="[^"]*verified files[^"]*"/, `data-en="${CASES.length} verified files — where each student started, what was changed, what failed along the way, and what the committee finally saw."`)
       .replace(/[一二三四五六七八九十]+份经核验的档案|\d+ 份经核验的档案/, `${CASES.length} 份经核验的档案`);
   }
