@@ -313,6 +313,47 @@
     });
   }
 
+  /* ---------- 卡片透视倾斜 ----------
+     悬停卡片随鼠标位置微微倾斜，并带一道随之移动的高光。
+     触屏与「减少动态」偏好下不启用。
+  --------------------------------------------------------------- */
+  function tilt() {
+    if (reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var cards = $('.card--hover');
+    if (!cards.length) return;
+
+    var MAX = 5; // 最大倾斜角（度）
+
+    cards.forEach(function (el) {
+      el.classList.add('tilt');
+      var rect = null;
+
+      el.addEventListener('mouseenter', function () {
+        rect = el.getBoundingClientRect();
+        el.classList.add('is-tilting');
+      });
+
+      el.addEventListener('mousemove', function (e) {
+        if (!rect) rect = el.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;   // 0 – 1
+        var py = (e.clientY - rect.top) / rect.height;
+        el.style.setProperty('--ry', ((px - 0.5) * 2 * MAX).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', ((0.5 - py) * 2 * MAX).toFixed(2) + 'deg');
+        el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+        el.style.setProperty('--ty', '-5px');
+      });
+
+      el.addEventListener('mouseleave', function () {
+        el.classList.remove('is-tilting');
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
+        el.style.setProperty('--ty', '0');
+        rect = null;
+      });
+    });
+  }
+
   /* ---------- 当前页导航高亮 ---------- */
   function activeNav() {
     var here = location.pathname.split('/').pop() || 'index.html';
@@ -324,7 +365,7 @@
 
   function boot() {
     nav(); burger(); marquee(); reveal(); counters();
-    faq(); filters(); scrollUi(); form(); activeNav();
+    faq(); filters(); scrollUi(); form(); activeNav(); tilt();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

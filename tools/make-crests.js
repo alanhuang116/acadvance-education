@@ -66,14 +66,7 @@ function crest(monogram, i) {
 `;
 }
 
-const schools = [
-  ['harvard', 'H'], ['yale', 'Y'], ['mit', 'MIT'], ['princeton', 'P'],
-  ['stanford', 'S'], ['columbia', 'CU'], ['berkeley', 'CAL'], ['cornell', 'CN'],
-  ['johns-hopkins', 'JHU'], ['emory', 'EU'], ['usc', 'USC'], ['florida', 'UF'],
-  ['hku', 'HKU'], ['cuhk', 'CUHK'], ['hkust', 'HKUST'], ['polyu', 'PolyU'],
-  ['cityu', 'CityU'], ['nus', 'NUS'], ['ntu', 'NTU'],
-  ['washington', 'UW'], ['buffalo', 'UB'], ['george-mason', 'GMU'],
-];
+const schools = require('../content/institutions.js').map((i) => [i.slug, i.mono]);
 
 schools.forEach(([slug, mono], i) => {
   fs.writeFileSync(path.join(OUT, `${slug}.svg`), crest(mono, i), 'utf8');

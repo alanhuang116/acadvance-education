@@ -20,7 +20,10 @@
 │   ├── js/i18n.js        中英双语引擎
 │   ├── js/site.js        导航、滚动动效、计数、FAQ、筛选、表单
 │   └── img/logos/        22 个院校徽记（**占位图形**，见第二节）
+├── content/              数据文件（机构 / 导师 / 课题 / 去向 / 问答）
 └── tools/
+    ├── build.js          渲染器：content/ → 四个页面
+    ├── check-site.js     自检
     ├── make-crests.js    徽记生成脚本
     └── serve.js          本地预览服务器（node tools/serve.js → :4321）
 ```
@@ -49,34 +52,36 @@
 
 ---
 
-## 二、上线前必须替换的内容
+## 二、内容是数据驱动的：改 content/，跑 build
 
-**属实的部分**：导师 5 人的姓名与任职机构、学员去向 6 条、三项数据指标（50+/10+/20+）、办公地点、联系邮箱。
+大体量内容不再手写在 HTML 里，而是放在 `content/` 下的数据文件，由 `tools/build.js` 渲染进页面：
 
-**以下为我撰写的示例内容，务必逐项换成真实记录：**
+| 文件 | 内容 | 条数 | 渲染到 |
+|---|---|---|---|
+| `content/institutions.js` | 机构总表（slug / 中英文名 / 地区 / 城市 / 徽记字母） | 59 | 徽记墙、去向墙、导师任职、「工作发生的地方」 |
+| `content/mentors.js` | 导师（姓氏 / 机构 / 领域 / 带教习惯 / 课题类型 / 硬规矩 / 名额） | 26 | 关于页导师阵容，首页导师任教徽记 |
+| `content/records.js` | 科研项目档案（课题 / 机构 / 方向 / 周期 / 方式 / 产出） | 109 | 案例页项目档案，首页学科矩阵计数 |
+| `content/destinations.js` | 学员去向（机构 / 项目 / 学段 / 年份 / 备注） | 118 | 案例页录取记录，首页精选 24 + 大字带 + 去向徽记 |
+| `content/faq.js` | 首页 11 条 + 服务页 6 条问答（加长版） | 17 | 两页 FAQ |
 
-| 位置 | 内容 | 数量 |
-|---|---|---|
-| [cases.html](cases.html) 案例卡 | 学生背景、周期、产出数字 | 6 个 |
-| [cases.html](cases.html) 深度复盘 | 完整叙事，含「受挫」段落 | 3 篇 |
-| [cases.html](cases.html) 项目档案 | 课题名、周期、学生产出 | 14 条 |
-| [about.html](about.html) 导师简介 | 带教风格描述与名额/周期（**姓名与机构属实，研究方向为按各校强势学科推测**） | 5 位 |
-| [index.html](index.html) 家庭评价 | 评价文本，含一条导师视角 | 6 条 |
-| [index.html](index.html) 学科矩阵 | 12 个方向的在库课题数（合计 50） | 12 格 |
-| [services.html](services.html) 一周实况 | 周会时间、投入小时数 | 6 行 |
-| 各页联系区 | 电话 `+1 (404) 000-0000` | — |
-| 页脚法务链接 | 隐私政策 / 服务条款 / 学术诚信政策（现指向 `#`） | 3 个 |
-| 顶部公告条 | 写死「2026 Fall 申请季」，每季度更新 | — |
+改完数据：
 
-> **`赵教授 · George Mason University`** —— 你写的是「Georgia Mason」，美国没有这所学校，最接近的是弗吉尼亚州的 **George Mason University（乔治梅森大学）**，我按这个填了。若你指的是 Georgia State（佐治亚州立）或 Georgia Tech（佐治亚理工），告诉我即可改，徽记文件名也要跟着换。
+```bash
+node tools/make-crests.js   # 加了新机构才需要：生成徽记
+node tools/build.js         # 渲染进页面，自动算所有筛选计数和首页数字
+node tools/check-site.js    # 自检
+git add -A && git commit -m "…" && git push
+```
 
-### 增删条目时要同步的数字
+页面里由 `<!-- @build:xxx -->` … `<!-- @/build:xxx -->` 圈出的区域会被重建覆盖，标记之外的手写内容不受影响。
 
-筛选器上的计数是硬编码的，改完跑 `node tools/check-site.js` 会自动查出不一致：
+### 属实 vs 示例
 
-- 案例卡筛选组 `cases`：标签 `undergrad` `master` `phd` `us`
-- 项目档案筛选组 `records`：标签 `health` `eng` `data` `ai` `chem`
-- 学科矩阵每格的「N 个在库」与首页 hero 的「50+」应当对得上
+**属实**：前 5 位导师的姓氏与任职机构（黄 Emory / 杨 Florida / 赵 George Mason / 李 PolyU / 李 NUS）、去向前 6 条（Princeton ×2、Harvard Med 硕士、Berkeley、UW、Buffalo 全奖博士）、办公地点、联系邮箱。
+
+**示例（上线前替换）**：其余 21 位导师、其余 112 条去向、全部 109 条课题、案例页 6 张案例卡与 3 篇深度复盘、首页 6 条评价、服务页一周实况、电话 `+1 (404) 000-0000`、页脚三个法务链接。
+
+> **`赵教授 · George Mason University`** —— 你写的是「Georgia Mason」，美国没有这所学校，我按弗吉尼亚州的 **George Mason University** 填了。若指 Georgia State 或 Georgia Tech，把 `content/mentors.js` 里 `inst: 'george-mason'` 改成 `'georgia-state'` 或 `'georgia-tech'` 即可（两所都已在机构表里）。
 
 ---
 

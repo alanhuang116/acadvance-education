@@ -138,15 +138,15 @@
         <div class="stat__label" data-en="Founded">机构成立年份</div>
       </div>
       <div class="stat">
-        <div class="stat__num"><span data-count="50">50</span><sup>+</sup></div>
+        <div class="stat__num"><span data-count="100">100</span><sup>+</sup></div>
         <div class="stat__label" data-en="Active research placements">在库科研与实习项目</div>
       </div>
       <div class="stat">
-        <div class="stat__num"><span data-count="20">20</span><sup>+</sup></div>
+        <div class="stat__num"><span data-count="26">26</span></div>
         <div class="stat__label" data-en="Mentors on faculty">在任带教导师</div>
       </div>
       <div class="stat">
-        <div class="stat__num"><span data-count="10">10</span><sup>+</sup></div>
+        <div class="stat__num"><span data-count="50">50</span><sup>+</sup></div>
         <div class="stat__label" data-en="Host universities &amp; institutes">项目所在院校与机构</div>
       </div>
     </div>
@@ -206,216 +206,731 @@
   </div>
 </section>
 
+<!-- @build:mentors -->
 <!-- ============================ 导师阵容 ============================ -->
 <section class="section on-paper-2" id="mentors">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow" data-reveal data-en="Faculty">导师阵容</span>
-      <h2 class="display-2" data-reveal data-en="Five faculty who <span class=&quot;accent-italic&quot;>still run laboratories</span>.">
-        五位仍在<span class="accent-italic">带实验室</span>的在任教授
+      <h2 class="display-2" data-reveal data-en="26 faculty, <span class=&quot;accent-italic&quot;>26 institutions</span>, six fields.">
+        26 位在任教授，<span class="accent-italic">26 所院校</span>，六大领域
       </h2>
       <p class="lede" data-reveal
-         data-en="Every mentor below currently holds a faculty position and supervises the student directly. Full contact details are disclosed to the family before a placement begins, and may be cited in an application.">
-        以下每位导师都持有在任教职，并亲自督导学员。完整联系方式在项目启动前向家庭披露，可在申请材料中直接引用。
+         data-en="Every mentor below currently holds a faculty position and supervises the student directly. Each entry records how they actually teach, what their group takes students onto, and the one rule they will not bend. Full contact details are disclosed to the family before a placement begins.">
+        以下每位导师都持有在任教职，并亲自督导学员。每条记录写的是他们实际怎么带人、课题组让学生做什么、以及那条不肯让步的规矩。完整联系方式在项目启动前向家庭披露。
       </p>
     </div>
 
-      <article class="mentor-full" data-reveal>
+    <div class="filters" data-filter-bar="mentors" role="group" aria-label="按领域筛选导师" data-en-aria-label="Filter mentors by field">
+      <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
+        <span data-en="All">全部</span><span class="filter__count">26</span>
+      </button>
+      <button class="filter" type="button" data-filter="life" aria-pressed="false">
+        <span data-en="Life Sciences &amp; Medicine">生命与医学</span><span class="filter__count">5</span>
+      </button>
+      <button class="filter" type="button" data-filter="eng" aria-pressed="false">
+        <span data-en="Engineering">工程</span><span class="filter__count">5</span>
+      </button>
+      <button class="filter" type="button" data-filter="comp" aria-pressed="false">
+        <span data-en="Computing &amp; Data">计算与数据</span><span class="filter__count">5</span>
+      </button>
+      <button class="filter" type="button" data-filter="phys" aria-pressed="false">
+        <span data-en="Physical Sciences">物理与化学</span><span class="filter__count">4</span>
+      </button>
+      <button class="filter" type="button" data-filter="env" aria-pressed="false">
+        <span data-en="Environment &amp; Earth">环境与地球</span><span class="filter__count">3</span>
+      </button>
+      <button class="filter" type="button" data-filter="social" aria-pressed="false">
+        <span data-en="Social Sciences &amp; Humanities">社科与人文</span><span class="filter__count">4</span>
+      </button>
+    </div>
+
+    <div data-filter-grid="mentors">
+      <article class="mentor-full" data-tags="life" data-reveal>
         <div class="mentor-full__aside">
-          <div class="mentor__portrait" style="aspect-ratio:1/1;max-width:132px;">
-            <span class="mentor__initials" style="font-size:2.2rem;">黄</span>
+          <div class="mentor__portrait">
+            <span class="mentor__initials">黄</span>
             <img class="mentor__crest" src="assets/img/logos/emory.svg" alt="Emory University" width="34" height="34" loading="lazy">
           </div>
           <h3 class="mentor-full__name" data-en="Prof. Huang">黄教授</h3>
           <p class="mentor-full__inst" data-en="Emory University">Emory University</p>
-          <p class="mentor-full__field" data-en="Public Health &amp; Immunology<br>Atlanta, United States">公共卫生 · 免疫学<br>美国 · 亚特兰大</p>
+          <p class="mentor-full__field" data-en="Public Health &amp; Immunology<br>Atlanta, GA · United States">公共卫生 · 免疫学<br>Atlanta, GA · 美国</p>
         </div>
 
         <div>
           <div class="mentor-full__body">
-          <p data-en="What most distinguishes Prof. Huang as a supervisor is that she is <strong>in no hurry for a student to produce anything</strong>. For the first two or three months a new student usually does nothing but read and attend group meetings, and parents often call at this stage to ask whether anything is happening. Her answer is always the same: a student who cannot read a paper and pretends otherwise will be faking everything that comes after.">带教风格上，黄教授最鲜明的一点是<strong>不急着让学生"出成果"</strong>。新学员进组的头两到三个月，任务通常只有读文献和跟组会，很多家长在这个阶段会打电话来问"是不是什么都没做"。她的回答一向是同一句：一个读不懂文献还假装读懂了的学生，后面做什么都是假的。</p>
-          <p data-en="Her projects sit at the boundary of immunology and public health — antibody dynamics after vaccination, coverage gaps in community screening — combining bench work with a great deal of data analysis. Students can therefore choose a path that fits their calendar: experiments on site over the summer, analysis remotely during term.">她的课题多在免疫学与公共卫生的交界处——疫苗接种后的抗体动态、社区筛查项目的覆盖缺口这一类，既有湿实验也有大量数据工作。这意味着学生可以按自己的时间条件选择路径：暑期在地做实验，学期内远程做分析。</p>
-          <p data-en="She requires every student to be able to <strong>reproduce all of their own results independently</strong> by the end of the placement. No reproduction, no evaluation letter. She has never once relaxed this.">她要求每位学员在结项时能<strong>独立复现自己的全部结果</strong>。做不到就不出评价信——这一条她从未松口过。</p>
+            <p data-en="For the first two or three months a new student does nothing but read and attend group meetings. Parents often call to ask whether anything is happening; her answer never changes: a student who cannot read a paper and pretends otherwise will be faking everything that comes after.">新学员进组的头两到三个月，任务只有读文献和跟组会。家长常在这个阶段打电话问「是不是什么都没做」，她的回答一向是同一句：一个读不懂文献还假装读懂了的学生，后面做什么都是假的。</p>
+            <p data-en="Projects sit at the boundary of immunology and public health — antibody dynamics after vaccination, coverage gaps in community screening — combining bench work with substantial data analysis, so students can choose a path that fits their calendar.">课题多在免疫学与公共卫生的交界——疫苗接种后的抗体动态、社区筛查的覆盖缺口——既有湿实验也有大量数据工作，学生可以按自己的时间条件选路径。</p>
+            <p data-en="Every student must be able to reproduce all of their own results independently at the end. No reproduction, no evaluation letter. She has never once relaxed this."><strong data-en="Hard rule —">硬规矩——</strong>结项时必须能独立复现自己的全部结果。做不到就不出评价信，这一条她从未松口。</p>
           </div>
           <dl class="mentor-spec">
-            <div>
-              <dt data-en="Places per year">每年名额</dt>
-              <dd data-en="<b>3</b> students"><b>3</b> 名</dd>
-            </div>
-            <div>
-              <dt data-en="Stage">接收学段</dt>
-              <dd data-en="Secondary · undergraduate">高中 · 本科</dd>
-            </div>
-            <div>
-              <dt data-en="Mode">工作方式</dt>
-              <dd data-en="On-site or remote">在地 / 远程均可</dd>
-            </div>
-            <div>
-              <dt data-en="Minimum">最短周期</dt>
-              <dd data-en="16 weeks">16 周</dd>
-            </div>
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site or remote">在地 / 远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="mentor-full" data-reveal>
+      <article class="mentor-full" data-tags="life" data-reveal>
         <div class="mentor-full__aside">
-          <div class="mentor__portrait" style="aspect-ratio:1/1;max-width:132px;">
-            <span class="mentor__initials" style="font-size:2.2rem;">杨</span>
+          <div class="mentor__portrait">
+            <span class="mentor__initials">陈</span>
+            <img class="mentor__crest" src="assets/img/logos/johns-hopkins.svg" alt="Johns Hopkins University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Chen">陈教授</h3>
+          <p class="mentor-full__inst" data-en="Johns Hopkins University">Johns Hopkins</p>
+          <p class="mentor-full__field" data-en="Neuroscience &amp; Behaviour<br>Baltimore, MD · United States">神经科学 · 行为<br>Baltimore, MD · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="The first task he gives every student is to design a behavioural experiment; then he personally runs it badly — not out of malice, but so the student sees in week one what a poorly set control looks like.">他给每个学生的第一个任务是设计一个行为实验，然后亲自把它做砸——不是恶意，是让学生在第一周就见到「对照组没设好」长什么样。</p>
+            <p data-en="Mouse behavioural paradigms and circuit imaging. Students typically start with video annotation and behavioural scoring; the good ones progress to imaging analysis.">小鼠行为范式与神经环路成像。学生通常从视频标注与行为评分起步，做得好的会进入成像数据分析。</p>
+            <p data-en="Laboratory notebooks are checked weekly. A week with vague entries does not count as hours worked."><strong data-en="Hard rule —">硬规矩——</strong>实验记录本每周检查一次。记录写得含糊的那周，不算工时。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Mainly undergraduate">本科为主</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site">在地</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="20 weeks">20 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="life" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">王</span>
+            <img class="mentor__crest" src="assets/img/logos/washington.svg" alt="University of Washington" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Wang">王教授</h3>
+          <p class="mentor-full__inst" data-en="University of Washington">University of Washington</p>
+          <p class="mentor-full__field" data-en="Computational Biology &amp; Genomics<br>Seattle, WA · United States">计算生物学 · 基因组<br>Seattle, WA · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="She does not accept “it ran” as a progress report. The student must say which step ran, why those parameters, and whether it would break on a different batch.">她不接受任何「跑通了」作为进度汇报。学生必须说清跑通的是哪一步、参数为什么这样选、换一批数据会不会崩。</p>
+            <p data-en="Single-cell sequencing analysis and gene regulatory network inference. Entirely computational and remote-eligible, with an explicit programming prerequisite.">单细胞测序分析与基因调控网络推断。全程计算，可远程，对编程基础有明确要求。</p>
+            <p data-en="All code goes into the group’s repository under the student’s own name. It is both training and evidence."><strong data-en="Hard rule —">硬规矩——</strong>所有代码进课题组的版本库，提交记录里有学生自己的名字。这既是训练，也是证据。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Fully remote possible">可全程远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="life" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">胡</span>
+            <img class="mentor__crest" src="assets/img/logos/cuhk.svg" alt="The Chinese University of Hong Kong" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Hu">胡教授</h3>
+          <p class="mentor-full__inst" data-en="The Chinese University of Hong Kong">CUHK</p>
+          <p class="mentor-full__field" data-en="Clinical Epidemiology<br>Hong Kong · Hong Kong SAR">临床流行病学<br>Hong Kong · 中国香港</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="He has students read a retracted paper first, then the correct version on the same topic. He says it does more than ten lectures on statistics.">他习惯让学生先读一篇被撤稿的论文，再读同一课题的正确版本。他说这比讲十节统计课都管用。</p>
+            <p data-en="Clinical data analysis on real cohorts: follow-up data cleaning, confounder control, survival analysis. Suited to students heading toward medicine.">基于真实队列的临床数据分析：随访数据清洗、混杂因素控制、生存分析。适合志在医学的学生。</p>
+            <p data-en="No student touches a single row of data before signing the de-identification protocol. No exceptions."><strong data-en="Hard rule —">硬规矩——</strong>数据脱敏协议签署前，学生不接触任何一行数据。这条没有例外。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate · pre-med">本科 · 医学预科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Hybrid">混合</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="life" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">吴</span>
+            <img class="mentor__crest" src="assets/img/logos/ucl.svg" alt="University College London" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Wu">吴教授</h3>
+          <p class="mentor-full__inst" data-en="University College London">UCL</p>
+          <p class="mentor-full__field" data-en="Cognitive Psychology<br>London · United Kingdom">认知心理学<br>London · 英国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="She requires students to pre-register hypotheses publicly before collecting data. Her phrase: “Decide how you would lose before you can know whether you won.”">她要求学生在预注册平台上先公开实验假设，再收数据。她的原话：「先想好你要怎么输，才知道你有没有赢。」</p>
+            <p data-en="Behavioural experiments on attention and memory, with online participant recruitment and experiment programming. Students complete the full loop from design to analysis.">注意力与记忆的行为实验，线上被试招募与实验程序编写。学生能独立完成从设计到分析的完整闭环。</p>
+            <p data-en="Any analysis not pre-registered must be labelled “exploratory” in the results."><strong data-en="Hard rule —">硬规矩——</strong>任何未预注册的分析，结果里必须标明「探索性」。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="eng" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">杨</span>
             <img class="mentor__crest" src="assets/img/logos/florida.svg" alt="University of Florida" width="34" height="34" loading="lazy">
           </div>
           <h3 class="mentor-full__name" data-en="Prof. Yang">杨教授</h3>
           <p class="mentor-full__inst" data-en="University of Florida">University of Florida</p>
-          <p class="mentor-full__field" data-en="Biomedical &amp; Environmental Engineering<br>Florida, United States">生物医学工程 · 环境工程<br>美国 · 佛罗里达</p>
+          <p class="mentor-full__field" data-en="Biomedical &amp; Environmental Engineering<br>Gainesville, FL · United States">生物医学工程 · 环境工程<br>Gainesville, FL · 美国</p>
         </div>
 
         <div>
           <div class="mentor-full__body">
-          <p data-en="Prof. Yang’s group builds <strong>things that have to actually work</strong>: signal correction for wearable sensors, settling experiments for microplastics in irrigation water, prototype devices iterated again and again. His standard for a student is an engineer’s standard — does it work, and does the data still hold after you repeat it.">杨教授的组做的是<strong>要能真正跑起来的东西</strong>：可穿戴传感器的信号校正、灌溉水里微塑料的沉降实验、器件原型的反复迭代。他对学生的评判标准很工程师——东西能不能用，数据重复几次是不是还一样。</p>
-          <p data-en="He does not write long commentary, but he archives and numbers every prototype version a student produces. By the end of a placement that numbered sequence is the most persuasive record there is: where version one failed, what changed by version seven. Students have told us afterwards that the question they were asked most at interview was how they got from the third version to the seventh.">他不太写长评语，但会把学生做的每一版原型编号存档。到结项时，那一串编号本身就是最有说服力的记录：第一版失败在哪里、第七版改了什么。有学员后来告诉我们，面试时被问到最多的就是"你是怎么从第三版走到第七版的"。</p>
-          <p data-en="This group works primarily on site — bench work and fabrication cannot be done remotely. It suits students who can commit a full summer, or who are nearby.">这个组以在地工作为主，湿实验和器件加工没法远程。适合能安排整段暑期、或就近的学生。</p>
+            <p data-en="He does not write long commentary, but he archives and numbers every prototype a student produces. By the end, that numbered sequence is the most persuasive record there is: where version one failed, what changed by version seven.">他不太写长评语，但会把学生做的每一版原型编号存档。到结项时那一串编号本身就是最有说服力的记录：第一版失败在哪里、第七版改了什么。</p>
+            <p data-en="Signal correction for wearable sensors, settling experiments for microplastics in irrigation water, prototype devices iterated again and again. An engineer’s standard: does it work, and does it still hold after you repeat it.">可穿戴传感器的信号校正、灌溉水中微塑料的沉降实验、器件原型的反复迭代。评判标准很工程师：东西能不能用，重复几次还一不一样。</p>
+            <p data-en="Bench work and fabrication cannot be done remotely. Suited to students who can commit a full summer, or who are nearby."><strong data-en="Hard rule —">硬规矩——</strong>湿实验与器件加工没法远程。适合能安排整段暑期、或就近的学生。</p>
           </div>
           <dl class="mentor-spec">
-            <div>
-              <dt data-en="Places per year">每年名额</dt>
-              <dd data-en="<b>2</b> students"><b>2</b> 名</dd>
-            </div>
-            <div>
-              <dt data-en="Stage">接收学段</dt>
-              <dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd>
-            </div>
-            <div>
-              <dt data-en="Mode">工作方式</dt>
-              <dd data-en="Primarily on-site">以在地为主</dd>
-            </div>
-            <div>
-              <dt data-en="Minimum">最短周期</dt>
-              <dd data-en="14 weeks">14 周</dd>
-            </div>
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Primarily on-site">以在地为主</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="mentor-full" data-reveal>
+      <article class="mentor-full" data-tags="eng" data-reveal>
         <div class="mentor-full__aside">
-          <div class="mentor__portrait" style="aspect-ratio:1/1;max-width:132px;">
-            <span class="mentor__initials" style="font-size:2.2rem;">赵</span>
+          <div class="mentor__portrait">
+            <span class="mentor__initials">林</span>
+            <img class="mentor__crest" src="assets/img/logos/hkust.svg" alt="The Hong Kong University of Science and Technology" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Lin">林教授</h3>
+          <p class="mentor-full__inst" data-en="The Hong Kong University of Science and Technology">HKUST</p>
+          <p class="mentor-full__field" data-en="Robotics &amp; Control<br>Hong Kong · Hong Kong SAR">机器人 · 控制<br>Hong Kong · 中国香港</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="His group meetings have an odd rule: demos must run on real hardware, never a simulation video. Everything succeeds in simulation, he says, and admissions committees know it.">他的组会有一条奇怪的规矩：演示必须用实机，不许放仿真视频。他说仿真里什么都能成功，招生官也知道这一点。</p>
+            <p data-en="Locomotion control for quadrupeds and manipulators, sensor fusion. Students begin with calibration and data capture; capable ones move into controller tuning.">四足与机械臂的运动控制、传感器融合。学生从标定与数据采集起步，能力够的进入控制算法调参。</p>
+            <p data-en="Safety certification before entering the lab. Breaking one robot costs half a year’s tuition."><strong data-en="Hard rule —">硬规矩——</strong>进实验室前必须通过安全考核。摔坏一台机器人的成本，够付半年学费。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Mainly undergraduate">本科为主</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site">在地</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="eng" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">张</span>
+            <img class="mentor__crest" src="assets/img/logos/georgia-tech.svg" alt="Georgia Institute of Technology" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Zhang">张教授</h3>
+          <p class="mentor-full__inst" data-en="Georgia Institute of Technology">Georgia Tech</p>
+          <p class="mentor-full__field" data-en="Mechanical Engineering &amp; Energy Systems<br>Atlanta, GA · United States">机械工程 · 能源系统<br>Atlanta, GA · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="Every student’s first week: dismantle the apparatus left by the previous student, draw the schematic, reassemble it. Some cannot reassemble it — which, he says, is precisely where learning begins.">每个学生入组第一周要做一件事：把上一位学生留下的实验装置拆开，画出原理图，再装回去。装不回去的也有——他说那正好是学习的开始。</p>
+            <p data-en="Experimental testing of thermal management and energy-storage systems, heavy on sensor placement and data acquisition. For students who like to build.">热管理与储能系统的实验测试，含大量传感器布置与数据采集。适合动手能力强的学生。</p>
+            <p data-en="Every measurement must carry an uncertainty. A figure without error bars is not shown in group meeting."><strong data-en="Hard rule —">硬规矩——</strong>所有测量数据必须附不确定度。没有误差棒的图，组会上不许放。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site">在地</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="eng" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">何</span>
+            <img class="mentor__crest" src="assets/img/logos/ntu.svg" alt="Nanyang Technological University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. He">何教授</h3>
+          <p class="mentor-full__inst" data-en="Nanyang Technological University">NTU</p>
+          <p class="mentor-full__field" data-en="Electrical Engineering &amp; Photonics<br>Singapore · Singapore">电子工程 · 光子学<br>Singapore · 新加坡</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="She makes students explain their project in three sentences to a non-specialist; if they cannot, they go back and reread. If you cannot explain it, she says, you do not yet understand it.">她要求学生用三句话向非专业人士解释自己的课题，说不清楚就回去重读。她说如果你解释不了，你就还没真的懂。</p>
+            <p data-en="Simulation and characterisation of integrated photonic devices. Early-stage simulation can be remote; later testing is in the cleanroom.">集成光子器件的仿真与表征。学生前期做仿真（可远程），后期进洁净室做测试。</p>
+            <p data-en="Simulation results must agree with at least one set of measured data before they enter a report."><strong data-en="Hard rule —">硬规矩——</strong>仿真结果必须与至少一组实测数据对得上，否则不进报告。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Hybrid">混合</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="eng" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">韩</span>
+            <img class="mentor__crest" src="assets/img/logos/cmu.svg" alt="Carnegie Mellon University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Han">韩教授</h3>
+          <p class="mentor-full__inst" data-en="Carnegie Mellon University">Carnegie Mellon</p>
+          <p class="mentor-full__field" data-en="Human–Computer Interaction<br>Pittsburgh, PA · United States">人机交互<br>Pittsburgh, PA · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="His students run a real user test every week, even with only two participants. A designer’s greatest illusion, he says, is “I think users will use it this way.”">他的学生每周必须做一次真实用户测试，哪怕只有两个被试。他说设计师最大的错觉是「我觉得用户会这样用」。</p>
+            <p data-en="Assistive technology and accessibility: interaction prototypes for visually impaired or mobility-limited users. Both programming and field observation.">辅助技术与可访问性研究：为视障或行动不便用户设计交互原型。既有编程也有田野观察。</p>
+            <p data-en="User tests require documented informed consent. Without it, the data is discarded."><strong data-en="Hard rule —">硬规矩——</strong>用户测试必须有知情同意记录。没有的，数据作废。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="comp" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">赵</span>
             <img class="mentor__crest" src="assets/img/logos/george-mason.svg" alt="George Mason University" width="34" height="34" loading="lazy">
           </div>
           <h3 class="mentor-full__name" data-en="Prof. Zhao">赵教授</h3>
           <p class="mentor-full__inst" data-en="George Mason University">George Mason University</p>
-          <p class="mentor-full__field" data-en="Data Science &amp; Public Policy<br>Virginia, United States">数据科学 · 公共政策<br>美国 · 弗吉尼亚</p>
+          <p class="mentor-full__field" data-en="Data Science &amp; Public Policy<br>Fairfax, VA · United States">数据科学 · 公共政策<br>Fairfax, VA · 美国</p>
         </div>
 
         <div>
           <div class="mentor-full__body">
-          <p data-en="Prof. Zhao carries <strong>most of our remote-eligible projects</strong>, which matters enormously for students still in school in China — no leave of absence, no travel, six to eight hours a week and they can contribute continuously. His field is policy data analysis: regression discontinuity on school-funding reform, residential-segregation indices from commuting data, urban heat and emergency admissions.">赵教授承担了我们<strong>绝大部分可远程的课题</strong>，这对国内在读学期的学生尤其关键——不用请假、不用出国，每周六到八小时就能持续参与。他的方向是政策数据分析：教育经费改革的断点回归、通勤数据里的居住隔离指标、城市热岛与急诊量的关联。</p>
-          <p data-en="The first thing he trains a student to do is not modelling but <strong>rewriting a vague social question into one that data can actually answer</strong>. This usually takes four or five rounds. On a student’s first attempt his annotation is often a single line: “This question has no answer, because it has not been asked clearly.”">他对学生的第一项训练不是建模，而是<strong>把一个含糊的社会问题改写成一个可被数据回答的问题</strong>。这一步通常要反复四五轮。很多学生第一次交上来的选题，他的批注只有一句："这个问题没有答案，因为它没有被问清楚。"</p>
-          <p data-en="He is also the most insistent member of the faculty that code must run for a stranger. A student’s output is not accepted as delivered unless it ships with a README and complete reproduction steps.">他也是团队里最坚持"代码要能被陌生人跑起来"的人。学员的产出必须附带 README 和完整的复现步骤，否则不算交付。</p>
+            <p data-en="The first thing he trains a student to do is not modelling but rewriting a vague social question into one that data can answer. This usually takes four or five rounds. On a first attempt his annotation is often one line: “This question has no answer, because it has not been asked clearly.”">他对学生的第一项训练不是建模，而是把一个含糊的社会问题改写成一个可被数据回答的问题。这一步通常要反复四五轮。很多学生第一次交上来的选题，他的批注只有一句：「这个问题没有答案，因为它没有被问清楚。」</p>
+            <p data-en="Policy data analysis: regression discontinuity on school-funding reform, segregation indices from commuting data, urban heat and emergency admissions. He carries most of our remote-eligible projects.">政策数据分析：教育经费改革的断点回归、通勤数据里的居住隔离指标、城市热岛与急诊量的关联。承担了我们绝大部分可远程课题。</p>
+            <p data-en="Code must ship with a README and complete reproduction steps, or it is not accepted as delivered."><strong data-en="Hard rule —">硬规矩——</strong>代码必须附 README 和完整复现步骤，否则不算交付。</p>
           </div>
           <dl class="mentor-spec">
-            <div>
-              <dt data-en="Places per year">每年名额</dt>
-              <dd data-en="<b>4</b> students"><b>4</b> 名</dd>
-            </div>
-            <div>
-              <dt data-en="Stage">接收学段</dt>
-              <dd data-en="Grade 10 up · undergraduate">高一起 · 本科</dd>
-            </div>
-            <div>
-              <dt data-en="Mode">工作方式</dt>
-              <dd data-en="Fully remote possible">可全程远程</dd>
-            </div>
-            <div>
-              <dt data-en="Minimum">最短周期</dt>
-              <dd data-en="12 weeks">12 周</dd>
-            </div>
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>4</b>"><b>4</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 10 up · undergraduate">高一起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Fully remote possible">可全程远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="mentor-full" data-reveal>
+      <article class="mentor-full" data-tags="comp" data-reveal>
         <div class="mentor-full__aside">
-          <div class="mentor__portrait" style="aspect-ratio:1/1;max-width:132px;">
-            <span class="mentor__initials" style="font-size:2.2rem;">李</span>
+          <div class="mentor__portrait">
+            <span class="mentor__initials">李</span>
             <img class="mentor__crest" src="assets/img/logos/polyu.svg" alt="The Hong Kong Polytechnic University" width="34" height="34" loading="lazy">
           </div>
           <h3 class="mentor-full__name" data-en="Prof. Li">李教授</h3>
-          <p class="mentor-full__inst" data-en="The Hong Kong Polytechnic University">香港理工大学</p>
-          <p class="mentor-full__field" data-en="Computing &amp; Artificial Intelligence<br>Hong Kong SAR">电子计算 · 人工智能<br>中国香港</p>
+          <p class="mentor-full__inst" data-en="The Hong Kong Polytechnic University">PolyU</p>
+          <p class="mentor-full__field" data-en="Computing &amp; Artificial Intelligence<br>Hong Kong · Hong Kong SAR">电子计算 · 人工智能<br>Hong Kong · 中国香港</p>
         </div>
 
         <div>
           <div class="mentor-full__body">
-          <p data-en="Prof. Li is <strong>the backbone of our institute track</strong>, and takes exactly two secondary students a year — never three. His reason is blunt: over three years of continuous supervision, two is the number of students he can genuinely remember, and he cannot write a letter with real detail about a student he does not remember.">李教授是我们<strong>长线培养的主力导师</strong>，每年只接收两名中学生，多一个都不接。理由他讲得很直白：三年的连续带教，他能记住的学生就这么多；记不住的学生，他写不出有细节的推荐信。</p>
-          <p data-en="On his long track, year one is literature and tooling; year two is owning a sub-question; output is not discussed until year three. One student followed him from Grade 10 to Grade 12 and ended as a co-author on a conference paper — but the more valuable document was the letter, which described the four months they were stuck in year two and how they got out.">进入他的长线轨道，第一年基本是文献与工具；第二年独立负责一个子问题；第三年才谈产出。有学员从高一跟到高三，最后以共同作者身份出现在一篇会议论文上——但更值钱的是那封信，里面写了他第二年卡住过四个月、以及是怎么走出来的。</p>
-          <p data-en="His projects are computational and <strong>remote-eligible</strong>, in a time zone close to the mainland, with group meetings scheduled conveniently for students in China.">他的课题多为计算方向，<strong>可远程</strong>，时区与内地相近，组会安排对国内学生友好。</p>
+            <p data-en="He takes exactly two secondary students a year, never three. His reason is blunt: over three years, two is the number he can genuinely remember, and he cannot write a detailed letter about a student he does not remember.">每年只接收两名中学生，多一个都不接。理由很直白：三年连续带教，他能记住的学生就这么多；记不住的学生，他写不出有细节的推荐信。</p>
+            <p data-en="The backbone of our institute track: year one is literature and tooling, year two an owned sub-question, output not discussed until year three. Computational, remote-eligible, in a time zone close to the mainland.">长线培养主力导师。第一年文献与工具，第二年独立负责子问题，第三年才谈产出。课题为计算方向，可远程，时区与内地相近。</p>
+            <p data-en="No change of mentor mid-track. A change breaks three years of memory."><strong data-en="Hard rule —">硬规矩——</strong>中途不换导师。换了，三年的记忆就断了。</p>
           </div>
           <dl class="mentor-spec">
-            <div>
-              <dt data-en="Places per year">每年名额</dt>
-              <dd data-en="<b>2</b> students"><b>2</b> 名</dd>
-            </div>
-            <div>
-              <dt data-en="Stage">接收学段</dt>
-              <dd data-en="Secondary, long track">中学长线为主</dd>
-            </div>
-            <div>
-              <dt data-en="Mode">工作方式</dt>
-              <dd data-en="Remote-eligible">可远程</dd>
-            </div>
-            <div>
-              <dt data-en="Typical">典型周期</dt>
-              <dd data-en="2 – 3 years">2 – 3 年</dd>
-            </div>
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary, long track">中学长线为主</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="2 – 3 years">2 – 3 年</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="mentor-full" data-reveal>
+      <article class="mentor-full" data-tags="comp" data-reveal>
         <div class="mentor-full__aside">
-          <div class="mentor__portrait" style="aspect-ratio:1/1;max-width:132px;">
-            <span class="mentor__initials" style="font-size:2.2rem;">李</span>
+          <div class="mentor__portrait">
+            <span class="mentor__initials">周</span>
+            <img class="mentor__crest" src="assets/img/logos/columbia.svg" alt="Columbia University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Zhou">周教授</h3>
+          <p class="mentor-full__inst" data-en="Columbia University">Columbia University</p>
+          <p class="mentor-full__field" data-en="Statistics &amp; Causal Inference<br>New York, NY · United States">统计学 · 因果推断<br>New York, NY · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="She has students re-run a published author’s analysis on the published data first. If it matches, they begin their own project; if not, they find out why — and that alone is often a paper.">她让学生先用一份已经发表的数据，重做一遍作者的分析。对上了，再开始自己的课题；对不上，先搞清楚为什么——这一步常常就是一篇论文。</p>
+            <p data-en="Quasi-experimental methods applied to education and health data. Fully computational, remote-eligible, mathematically demanding.">准实验方法在教育与医疗数据上的应用。全计算，可远程，数学基础要求高。</p>
+            <p data-en="Every analysis must state the assumptions under which the conclusion holds. Without that paragraph, the draft is returned."><strong data-en="Hard rule —">硬规矩——</strong>每份分析必须写明「这个结论在什么假设下才成立」。没有这段，稿子退回。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Mainly undergraduate">本科为主</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="comp" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">谢</span>
+            <img class="mentor__crest" src="assets/img/logos/cambridge.svg" alt="University of Cambridge" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Xie">谢教授</h3>
+          <p class="mentor-full__inst" data-en="University of Cambridge">University of Cambridge</p>
+          <p class="mentor-full__field" data-en="Applied Mathematics<br>Cambridge · United Kingdom">应用数学<br>Cambridge · 英国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="He never gives answers, only the next book to read. One student counted: 23 recommendations in a term, 6 actually read, project completed.">他从不直接给答案，只给下一本要读的书。有学生统计过，一个学期他推荐了 23 本，读完 6 本，课题做完了。</p>
+            <p data-en="Numerical methods for PDEs and fluid modelling. Students verify theory with code and let theory guide the code — neither side may be neglected.">偏微分方程的数值方法与流体建模。学生用代码验证理论，理论指导代码——两边都不能偏废。</p>
+            <p data-en="Derivations must be handwritten. He does not read typed mathematics."><strong data-en="Hard rule —">硬规矩——</strong>推导必须手写。他不看打字的数学。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>1</b>"><b>1</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="20 weeks">20 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="comp" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">唐</span>
+            <img class="mentor__crest" src="assets/img/logos/ubc.svg" alt="University of British Columbia" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Tang">唐教授</h3>
+          <p class="mentor-full__inst" data-en="University of British Columbia">UBC</p>
+          <p class="mentor-full__field" data-en="Learning Sciences &amp; Education Data<br>Vancouver · Canada">学习科学 · 教育数据<br>Vancouver · 加拿大</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="Her students spend a month as teaching assistants observing real classrooms before touching data. Someone who has never seen a classroom, she says, cannot analyse education data.">她的学生要先当一个月助教，观察真实课堂，然后才允许碰数据。她说没见过教室的人分析不了教育数据。</p>
+            <p data-en="Behavioural data from online learning platforms, linking learning paths to outcomes. Remote-eligible and especially accessible to secondary students.">在线学习平台的行为数据分析，学习路径与成绩的关联。可远程，对高中生尤其友好。</p>
+            <p data-en="Every analysis involving minors’ data passes ethics review at each step. Slow, and without shortcuts."><strong data-en="Hard rule —">硬规矩——</strong>涉及未成年人数据的分析，每一步都要过伦理审查。慢，但没有捷径。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Fully remote possible">可全程远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="phys" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">李</span>
             <img class="mentor__crest" src="assets/img/logos/nus.svg" alt="National University of Singapore" width="34" height="34" loading="lazy">
           </div>
           <h3 class="mentor-full__name" data-en="Prof. Lee">李教授</h3>
-          <p class="mentor-full__inst" data-en="National University of Singapore">新加坡国立大学</p>
-          <p class="mentor-full__field" data-en="Chemistry &amp; Materials Science<br>Singapore">化学 · 材料科学<br>新加坡</p>
+          <p class="mentor-full__inst" data-en="National University of Singapore">NUS</p>
+          <p class="mentor-full__field" data-en="Chemistry &amp; Materials Science<br>Singapore · Singapore">化学 · 材料科学<br>Singapore · 新加坡</p>
         </div>
 
         <div>
           <div class="mentor-full__body">
-          <p data-en="Among our faculty, Prof. Lee is <strong>the one who says no most often</strong>. He explicitly retains the right to decline to endorse work that is not good enough, and he has used it — one student’s poster was sent back three times before he cleared it, and another student finished without receiving his evaluation letter at all.">在我们的导师里，李教授是<strong>最常说"不"的那一位</strong>。他明确保留拒绝为不达标工作背书的权利，并且真的用过——有学员的海报被他退回三次，第四次才放行；也有学员最终没有拿到他的评价信。</p>
-          <p data-en="We wrote this into our agreement with him and into our contract with families. The reason is simple: a mentor who never refuses has an endorsement worth nothing. Students and parents are told this plainly before signing.">我们把这件事写进了与他的约定，也写进了与家庭的合同。原因很简单：如果一位导师从不拒绝，那他的认可就不值钱。学生和家长在签约前都会被明确告知这一点。</p>
-          <p data-en="His work is in perovskite thin films and polymer self-assembly — <strong>primarily on-site bench work</strong>, demanding in practical skill, and suited to students who can commit a full summer.">他的方向是钙钛矿薄膜、高分子自组装这类材料工作，以<strong>在地湿实验为主</strong>，对动手能力要求高，适合能安排完整暑期的学生。</p>
+            <p data-en="Among our faculty he is the one who says no most often. He retains the right to decline to endorse work that is not good enough, and has used it — one poster was sent back three times before he cleared it; another student finished without his letter.">在我们的导师里，他是最常说「不」的那一位。他明确保留拒绝为不达标工作背书的权利，并且真的用过——有学员的海报被退回三次，第四次才放行；也有学员最终没有拿到他的评价信。</p>
+            <p data-en="Perovskite thin films and polymer self-assembly — primarily on-site bench work, demanding in practical skill.">钙钛矿薄膜、高分子自组装这类材料工作，以在地湿实验为主，对动手能力要求高。</p>
+            <p data-en="Written into our agreement with him and our contract with families: a mentor who never refuses has an endorsement worth nothing."><strong data-en="Hard rule —">硬规矩——</strong>这条写进了与他的约定，也写进了与家庭的合同：如果一位导师从不拒绝，那他的认可就不值钱。</p>
           </div>
           <dl class="mentor-spec">
-            <div>
-              <dt data-en="Places per year">每年名额</dt>
-              <dd data-en="<b>2</b> students"><b>2</b> 名</dd>
-            </div>
-            <div>
-              <dt data-en="Stage">接收学段</dt>
-              <dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd>
-            </div>
-            <div>
-              <dt data-en="Mode">工作方式</dt>
-              <dd data-en="On-site, wet lab">在地湿实验</dd>
-            </div>
-            <div>
-              <dt data-en="Minimum">最短周期</dt>
-              <dd data-en="18 weeks">18 周</dd>
-            </div>
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site, wet lab">在地湿实验</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="18 weeks">18 周</dd></div>
           </dl>
         </div>
       </article>
 
+      <article class="mentor-full" data-tags="phys" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">马</span>
+            <img class="mentor__crest" src="assets/img/logos/eth.svg" alt="ETH Zurich" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Ma">马教授</h3>
+          <p class="mentor-full__inst" data-en="ETH Zurich">ETH Zurich</p>
+          <p class="mentor-full__field" data-en="Condensed Matter &amp; Quantum Materials<br>Zurich · Continental Europe">凝聚态物理 · 量子材料<br>Zurich · 欧洲大陆</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="He has students build their own rudimentary low-temperature measurement rig even though the lab has a proper one. With someone else’s instrument, he says, you cannot explain where the noise comes from.">他让学生自己搭一台简易的低温测量装置，哪怕实验室里有现成的。他说用别人的仪器得到的数据，你解释不了噪声从哪来。</p>
+            <p data-en="Transport measurements on two-dimensional materials and analysis. Early data work can be remote; measurements later are on site.">二维材料的输运测量与数据分析。前期可远程做数据处理，后期需在地做测量。</p>
+            <p data-en="Every data point must trace back to a raw file and a timestamp."><strong data-en="Hard rule —">硬规矩——</strong>每个数据点必须能追溯到原始文件与测量时间。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>1</b>"><b>1</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Hybrid">混合</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="20 weeks">20 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="phys" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">徐</span>
+            <img class="mentor__crest" src="assets/img/logos/imperial.svg" alt="Imperial College London" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Xu">徐教授</h3>
+          <p class="mentor-full__inst" data-en="Imperial College London">Imperial</p>
+          <p class="mentor-full__field" data-en="Chemical Engineering &amp; Catalysis<br>London · United Kingdom">化学工程 · 催化<br>London · 英国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="She has students write the expected result before every experiment and compare afterwards. The pleasure of research, she says, is not in guessing right but in understanding why you guessed wrong.">她要求学生在每次实验前写下预期结果，实验后对照。她说科研的乐趣不在于猜对，在于搞清楚为什么猜错。</p>
+            <p data-en="Catalyst screening and reaction-condition optimisation, with a great deal of repetition and data curation. For patient students with steady hands.">催化剂筛选与反应条件优化，含大量重复实验与数据整理。适合耐心好、手稳的学生。</p>
+            <p data-en="No unsupervised bench work without safety training, which is examined and retaken on failure."><strong data-en="Hard rule —">硬规矩——</strong>未经安全培训不得单独操作。培训要考试，不及格重考。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="On-site">在地</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="phys" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">刘</span>
+            <img class="mentor__crest" src="assets/img/logos/ucsd.svg" alt="University of California, San Diego" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Liu">刘教授</h3>
+          <p class="mentor-full__inst" data-en="University of California, San Diego">UC San Diego</p>
+          <p class="mentor-full__field" data-en="Ocean Science &amp; Climate Physics<br>La Jolla, CA · United States">海洋科学 · 气候物理<br>La Jolla, CA · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="He took students to sea once; they came back with a very different understanding of data quality — readings logged while seasick deserve a discount.">他带学生出过一次海，回来后学生对「数据质量」有了完全不同的理解——晕船的时候记录的数据，可信度是要打折的。</p>
+            <p data-en="Processing ocean observations and comparing them against climate models. Mainly computational and remote; occasional opportunities at sea.">海洋观测数据的处理与气候模式的对比分析。以计算为主，可远程；偶有出海机会。</p>
+            <p data-en="Every axis on every figure carries a unit. This rule, he says, has saved three of his papers."><strong data-en="Hard rule —">硬规矩——</strong>所有图的坐标轴必须带单位。他说这条规矩救过他三篇论文。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="env" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">高</span>
+            <img class="mentor__crest" src="assets/img/logos/duke.svg" alt="Duke University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Gao">高教授</h3>
+          <p class="mentor-full__inst" data-en="Duke University">Duke University</p>
+          <p class="mentor-full__field" data-en="Ecology &amp; Environmental Science<br>Durham, NC · United States">生态学 · 环境科学<br>Durham, NC · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="During field sampling she requires a one-page daily note — not data, but “where might I have gone wrong today”. Those notes later become the most honest paragraph in the paper.">田野采样期间，她要求学生每天写一页手记，记的不是数据，是「今天哪里可能出错了」。这些手记后来成了论文里最诚实的一段。</p>
+            <p data-en="Wetland ecological monitoring and water-quality analysis, with a field season and a laboratory season. For students who mind neither sun nor insects.">湿地生态监测与水质分析，有田野季也有实验室季。适合不怕晒、不怕虫的学生。</p>
+            <p data-en="Field safety training is mandatory — including for her."><strong data-en="Hard rule —">硬规矩——</strong>田野安全培训是硬门槛。没有例外，包括她自己。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Primarily on-site">在地为主</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="env" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">罗</span>
+            <img class="mentor__crest" src="assets/img/logos/purdue.svg" alt="Purdue University" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Luo">罗教授</h3>
+          <p class="mentor-full__inst" data-en="Purdue University">Purdue University</p>
+          <p class="mentor-full__field" data-en="Agricultural Science &amp; Food Systems<br>West Lafayette, IN · United States">农业科学 · 食品系统<br>West Lafayette, IN · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="On day one his students receive not a reading list but a plot of experimental land. Every question in agronomy, he says, ends up being tested in the ground.">他的学生第一天领到的不是文献，是一块试验田。他说农学的所有问题最后都要回到地里去验证。</p>
+            <p data-en="Crop phenotyping, drone imagery analysis, soil monitoring. Half computational, half field.">作物表型数据采集、无人机影像分析、土壤指标监测。计算与田野各半。</p>
+            <p data-en="Field notes are entered the same day. Memory from the night before is not data."><strong data-en="Hard rule —">硬规矩——</strong>田间记录必须当天录入，隔夜的记忆不算数据。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Hybrid">混合</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="env" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">梁</span>
+            <img class="mentor__crest" src="assets/img/logos/hku.svg" alt="The University of Hong Kong" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Leung">梁教授</h3>
+          <p class="mentor-full__inst" data-en="The University of Hong Kong">HKU</p>
+          <p class="mentor-full__field" data-en="Urban Planning &amp; Built Environment<br>Hong Kong · Hong Kong SAR">城市规划 · 建成环境<br>Hong Kong · 中国香港</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="Students walk one neighbourhood for twenty hours and draw it before reading any planning theory. A map, he says, is walked, not drawn.">他让学生先在一个街区走满 20 个小时，画出来，再开始读任何规划理论。他说地图是走出来的，不是画出来的。</p>
+            <p data-en="Urban heat, walkability and community space use — fieldwork combined with spatial analysis in GIS.">城市热岛、步行可达性、社区空间使用的实地调研与空间分析。GIS 与田野结合。</p>
+            <p data-en="All surveys require an observer physically present. Pure remote sensing or pure questionnaires are not accepted."><strong data-en="Hard rule —">硬规矩——</strong>所有调研必须有人在场记录，不接受纯遥感或纯问卷。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>3</b>"><b>3</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Primarily on-site">在地为主</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="social" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">郑</span>
+            <img class="mentor__crest" src="assets/img/logos/toronto.svg" alt="University of Toronto" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Zheng">郑教授</h3>
+          <p class="mentor-full__inst" data-en="University of Toronto">University of Toronto</p>
+          <p class="mentor-full__field" data-en="Labour Economics<br>Toronto · Canada">劳动经济学<br>Toronto · 加拿大</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="Her group meetings do not discuss results, only identification: on what grounds is this causal rather than correlational? An analysis that cannot answer stays out of the report, however pretty the result.">她的组会不讨论结果，只讨论识别策略：你凭什么说这是因果，而不是相关？回答不了这个问题的分析，不管结果多好看都不进报告。</p>
+            <p data-en="Panel-data analysis of minimum wage, migration and employment. Fully computational, remote-eligible.">最低工资、移民与就业的面板数据分析。全计算，可远程。</p>
+            <p data-en="Every regression reports robustness checks. A conclusion from a single model is sent back."><strong data-en="Hard rule —">硬规矩——</strong>所有回归都要报告稳健性检验。一个模型就下结论的，退回重做。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="14 weeks">14 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="social" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">孙</span>
+            <img class="mentor__crest" src="assets/img/logos/michigan.svg" alt="University of Michigan" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Sun">孙教授</h3>
+          <p class="mentor-full__inst" data-en="University of Michigan">University of Michigan</p>
+          <p class="mentor-full__field" data-en="Sociology, Cities &amp; Inequality<br>Ann Arbor, MI · United States">社会学 · 城市与不平等<br>Ann Arbor, MI · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="Ten in-depth interviews before any quantitative work. Numbers tell you what, he says; interviews tell you why; research with neither is blind.">他要求学生在做定量分析前先做十次深度访谈。他说数字告诉你「是什么」，访谈告诉你「为什么」，两个都没有的研究是瞎的。</p>
+            <p data-en="Mixed-methods research on housing, educational resources and social mobility. For students willing to talk to people.">住房、教育资源分布与社会流动的混合方法研究。适合愿意跟人打交道的学生。</p>
+            <p data-en="Interview recordings are transcribed verbatim by the student. Transcription is part of the research."><strong data-en="Hard rule —">硬规矩——</strong>访谈录音必须逐字转录，由学生自己完成。转录是研究的一部分。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Undergraduate">本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Hybrid">混合</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="16 weeks">16 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="social" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">宋</span>
+            <img class="mentor__crest" src="assets/img/logos/lse.svg" alt="London School of Economics" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Song">宋教授</h3>
+          <p class="mentor-full__inst" data-en="London School of Economics">LSE</p>
+          <p class="mentor-full__field" data-en="Political Science &amp; International Relations<br>London · United Kingdom">政治学 · 国际关系<br>London · 英国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="A 500-word policy commentary every week, torn apart line by line by another student the week after. Writing it is one thing, he says; surviving the rebuttal is scholarship.">他让学生每周写一篇 500 字的政策评论，第二周由另一个学生逐句反驳。他说写得出来是一回事，扛得住反驳才是学术。</p>
+            <p data-en="Text analysis and case studies of decision-making in international organisations. Reading-heavy; suited to strong writers.">国际组织决策的文本分析与案例研究。阅读量大，适合文字功底好的学生。</p>
+            <p data-en="Every citation must trace to a primary source. Second-hand citations do not count."><strong data-en="Hard rule —">硬规矩——</strong>所有引用必须能追溯到一手文献。二手转引一律不算。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Grade 11 up · undergraduate">高二起 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="mentor-full" data-tags="social" data-reveal>
+        <div class="mentor-full__aside">
+          <div class="mentor__portrait">
+            <span class="mentor__initials">郭</span>
+            <img class="mentor__crest" src="assets/img/logos/chicago.svg" alt="University of Chicago" width="34" height="34" loading="lazy">
+          </div>
+          <h3 class="mentor-full__name" data-en="Prof. Guo">郭教授</h3>
+          <p class="mentor-full__inst" data-en="University of Chicago">University of Chicago</p>
+          <p class="mentor-full__field" data-en="History &amp; Archival Research<br>Chicago, IL · United States">历史学 · 档案研究<br>Chicago, IL · 美国</p>
+        </div>
+
+        <div>
+          <div class="mentor-full__body">
+            <p data-en="The first lesson in the archive: how to read a single digit in a nineteenth-century handwritten ledger. The technical bar in history, she says, is no lower than in a laboratory.">她带学生进档案馆的第一课是：如何在一份 19 世纪的手写账簿里辨认一个数字。她说历史学的技术门槛不比实验室低。</p>
+            <p data-en="Archival curation and database construction on modern East Asian trade and migration. Substantial digitisation and transcription, remote-eligible.">近代东亚贸易与移民史的档案整理与数据库建设。有大量数字化与转录工作，可远程。</p>
+            <p data-en="Every database record carries the archive’s file reference."><strong data-en="Hard rule —">硬规矩——</strong>每一条数据库记录都要标注来源档案的卷宗号。</p>
+          </div>
+          <dl class="mentor-spec">
+            <div><dt data-en="Places per year">每年名额</dt><dd data-en="<b>2</b>"><b>2</b> 名</dd></div>
+            <div><dt data-en="Stage">接收学段</dt><dd data-en="Secondary · undergraduate">高中 · 本科</dd></div>
+            <div><dt data-en="Mode">工作方式</dt><dd data-en="Remote-eligible">可远程</dd></div>
+            <div><dt data-en="Minimum">最短周期</dt><dd data-en="12 weeks">12 周</dd></div>
+          </dl>
+        </div>
+      </article>
+      <p class="records__empty" data-filter-empty hidden data-en="No mentors in this field.">该领域暂无导师。</p>
+    </div>
+
     <p class="muted" style="margin-top:28px;font-size:.75rem;"
-       data-en="Mentor names and institutions are accurate. Research descriptions summarise the kind of work each group takes students onto; a family receives the specific project title, the mentor’s full name and their contact details before any placement begins.">
-      导师姓名与所属机构属实。此处的研究描述概括了各组接收学员的工作类型；确切课题名称、导师全名与联系方式，在项目启动前向家庭披露。
+       data-en="Mentor surnames and institutions are shown; full names are disclosed to families before a placement. Descriptions summarise the kind of work each group takes students onto.">
+      此处显示导师姓氏与任职机构；全名在项目启动前向家庭披露。描述概括了各组接收学员的工作类型。
     </p>
   </div>
 </section>
+<!-- @/build:mentors -->
 
 <!-- ============================ 导师遴选标准 ============================ -->
 <section class="section on-dark texture-grid">
