@@ -1767,3 +1767,127 @@ html[lang='zh-CN'] [data-lang='en'] { display: none; }
   background: var(--gold-600);
   opacity: .5;
 }
+
+/* ==========================================================================
+   28. 机构紧凑横排（覆盖第 26 节的竖排卡）
+   ========================================================================== */
+.place-grid {
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+}
+.place {
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 4px 14px;
+  align-items: center;
+  padding: 14px 16px;
+}
+.place img { width: 44px; height: 44px; grid-row: 1 / 3; opacity: .82; }
+.place__body { min-width: 0; }
+.place__name { font-size: 1rem; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.place__zh { margin-top: 1px; font-size: .6875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.place__field {
+  display: block;
+  margin-top: 3px;
+  font-size: .6875rem;
+  color: var(--gold-700);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.place__marks {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.place__mark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: .625rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--line-2);
+  color: var(--text-2);
+}
+.place__mark i { font-style: normal; font-weight: 500; opacity: .7; }
+.place__mark--m { border-color: rgba(195,161,99,.5); background: rgba(195,161,99,.10); color: var(--gold-700); }
+.place__mark--r { border-color: rgba(34,55,79,.28); background: rgba(34,55,79,.06); color: var(--ink-700); }
+.place__mark--d { border-color: rgba(19,28,46,.18); }
+
+.place-region__title { font-size: 1.25rem; margin-top: 0; padding-bottom: 10px; margin-bottom: 12px; }
+.place-region { margin-top: clamp(26px, 3vw, 40px); }
+
+/* 图例 */
+.place-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  margin-bottom: 26px;
+  font-size: .75rem; color: var(--text-3);
+}
+
+/* ==========================================================================
+   29. 案例档案展开
+   ========================================================================== */
+.case__toggle {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0 3px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+  border-bottom: 1px solid rgba(169,134,74,.3);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.case__toggle:hover { color: var(--gold-600); border-color: var(--gold-500); }
+.case__toggle svg { transition: transform .45s var(--ease-out); }
+.case__toggle-close { display: none; }
+.case.is-open .case__toggle-open { display: none; }
+.case.is-open .case__toggle-close { display: inline; }
+.case.is-open .case__toggle svg { transform: rotate(180deg); }
+
+.case__archive {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .6s var(--ease-out);
+}
+.case__archive > dl { overflow: hidden; }
+.case.is-open .case__archive { grid-template-rows: 1fr; }
+.case__archive .narrative__phase {
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px 0;
+}
+.case__archive .narrative__phase:first-child { margin-top: 18px; border-top: 1px solid var(--line); }
+.case__archive .narrative__phase dd { font-size: .875rem; line-height: 1.75; }
+.case__archive .narrative__phase dt { font-size: .625rem; padding-top: 4px; }
+
+/* 展开的卡片占满一行，读起来舒服 */
+@media (min-width: 1001px) { .case.is-open { grid-column: 1 / -1; } }
+.case.is-open .case__archive dl {
+  column-count: 1;
+}
+@media (min-width: 1001px) {
+  .case.is-open .case__body { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: 0 clamp(28px, 3.5vw, 56px); }
+  .case.is-open .case__from, .case.is-open .case__result, .case.is-open .case__prog,
+  .case.is-open .case__quote, .case.is-open .case__foot, .case.is-open .case__toggle { grid-column: 1; }
+  .case.is-open .case__archive { grid-column: 2; grid-row: 1 / 7; }
+  .case.is-open .case__archive .narrative__phase:first-child { margin-top: 0; border-top: 0; }
+}
+/* 展开态关掉倾斜，避免长卡片晃 */
+.case.is-open.tilt { transform: none !important; }
+
+/* 顶部四格数据条（案例页），压进上方深色页头 */
+.stats--4 { grid-template-columns: repeat(4, 1fr); }
+.on-paper-2 .stats, .section .stats.overlap-up { background: #fff; }
+.overlap-up { margin-top: calc(var(--section-y) * -0.5 - 30px); }
+
+/* 视差：漂浮徽记叠加滚动位移 */
+@keyframes hover-crest {
+  from { transform: translate3d(0, var(--py, 0px), 0) rotate(-4deg); }
+  to   { transform: translate3d(-2%, calc(3% + var(--py, 0px)), 0) rotate(5deg); }
+}

@@ -20,6 +20,8 @@ const GROUPS = MENTORS.groups;
 const RECORDS = require('../content/records.js');
 const DEST = require('../content/destinations.js');
 const FAQ = require('../content/faq.js');
+const CASES = require('../content/cases.js');
+const crypto = require('crypto');
 
 const byslug = Object.fromEntries(INST.map((i) => [i.slug, i]));
 const inst = (slug) => {
@@ -342,7 +344,121 @@ ${cards}
 `;
 }
 
-/* ---------- 服务页：工作发生的地方（全部机构，按地区） ---------- */
+/* ---------- 案例页：案例卡（可展开五段档案）+ 顶部数据条 ---------- */
+function casesSection() {
+  const counts = { all: CASES.length };
+  CASES.forEach((c) => {
+    counts[c.level] = (counts[c.level] || 0) + 1;
+    counts[c.group] = (counts[c.group] || 0) + 1;
+  });
+  const filterDefs = [
+    ['all', '全部', 'All'],
+    ['ug', '本科', 'Undergraduate'], ['ms', '硕士', 'Master’s'], ['phd', '博士', 'Doctoral'],
+    ...GROUPS.map((g) => [g.key, g.zh, g.en]),
+  ].filter(([k]) => counts[k]);
+  const btns = filterDefs.map(([k, zh, en], idx) =>
+    `      <button class="filter${idx === 0 ? ' is-active' : ''}" type="button" data-filter="${k}" aria-pressed="${idx === 0}">
+        <span data-en="${en}">${zh}</span><span class="filter__count">${counts[k]}</span>
+      </button>`).join('\n');
+
+  const PH = [
+    ['startZh', 'startEn', '起点', 'Starting point'],
+    ['diagZh', 'diagEn', '诊断', 'Diagnosis'],
+    ['changeZh', 'changeEn', '调整', 'What we changed'],
+    ['wrongZh', 'wrongEn', '受挫', 'What went wrong'],
+    ['outcomeZh', 'outcomeEn', '结果', 'Outcome'],
+  ];
+
+  const cards = CASES.map((c, idx) => {
+    const i = inst(c.inst);
+    const lv = CASES.levels[c.level];
+    const stats = c.stats.map(([n, zh, en]) =>
+      `            <span class="case__stat"><b>${n}</b><span data-en="${en}">${zh}</span></span>`).join('\n');
+    const phases = PH.map(([kz, ke, lz, le]) =>
+      `              <div class="narrative__phase">
+                <dt data-en="${le}">${lz}</dt>
+                <dd data-en="${c.phases[ke]}">${c.phases[kz]}</dd>
+              </div>`).join('\n');
+    const n = pad3(idx + 1);
+    return `      <article class="card card--hover case" data-tags="${c.level} ${c.group}" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="${lv.en}">${lv.zh}</span>
+          ${crestImg(i, 46).replace('<img ', '<img class="case__crest" ')}
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="${c.fromEn}">${c.fromZh}</p>
+          <h3 class="case__result">${i.en}</h3>
+          <p class="case__prog" data-en="${c.progEn}">${c.progZh}</p>
+          <p class="case__quote" data-en="${c.quoteEn}">${c.quoteZh}</p>
+          <div class="case__foot">
+${stats}
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-${n}">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-${n}">
+            <dl>
+${phases}
+            </dl>
+          </div>
+        </div>
+      </article>`;
+  }).join('\n\n');
+
+  const schools = new Set(CASES.map((c) => c.inst)).size;
+  const cn = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十', '二十一', '二十二', '二十三', '二十四', '二十五', '二十六', '二十七', '二十八', '二十九', '三十'][CASES.length] || CASES.length;
+
+  return `<!-- ============================ 筛选 + 案例网格 ============================ -->
+<section class="section" id="cases">
+  <div class="container">
+
+    <div class="stats stats--4 overlap-up" data-reveal>
+      <div class="stat">
+        <div class="stat__num"><span data-count="${CASES.length}">${CASES.length}</span></div>
+        <div class="stat__label" data-en="Case files, each expandable">份案例档案，每份可展开</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="${DEST.length}">${DEST.length}</span></div>
+        <div class="stat__label" data-en="Recorded outcomes">条去向记录</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="${RECORDS.length}">${RECORDS.length}</span></div>
+        <div class="stat__label" data-en="Placements logged">个课题档案</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="${schools}">${schools}</span></div>
+        <div class="stat__label" data-en="Institutions in the case files">所案例院校</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:clamp(56px,6vw,88px);">
+      <span class="eyebrow" data-reveal data-en="Case Files">案例档案</span>
+      <h2 class="display-2" data-reveal data-en="${CASES.length} students. <span class=&quot;accent-italic&quot;>Every file opens</span>.">
+        ${cn}位学生，<span class="accent-italic">每份档案都能展开</span>
+      </h2>
+      <p class="lede" data-reveal
+         data-en="Click any card to open its five-part record: where the student started, what we diagnosed, what we changed, what went wrong, and what the committee finally saw. Names withheld at each family’s request.">
+        点开任意一张卡，看五段记录：起点、诊断、调整、受挫、结果。应家庭要求隐去姓名。
+      </p>
+    </div>
+
+    <div class="filters" data-filter-bar="cases" role="group" aria-label="案例筛选" data-en-aria-label="Filter case studies">
+${btns}
+    </div>
+
+    <div class="grid grid--3" data-filter-grid="cases">
+${cards}
+
+      <p class="case-grid__empty" data-filter-empty hidden data-en="No case files match this filter yet.">当前筛选条件下暂无案例。</p>
+    </div>
+  </div>
+</section>
+`;
+}
+
+/* ---------- 服务页：工作发生的地方（全部机构，按地区，紧凑横排） ---------- */
 function placesSection() {
   const mentorsAt = {};
   MENTORS.forEach((m) => { (mentorsAt[m.inst] = mentorsAt[m.inst] || []).push(m); });
@@ -360,20 +476,20 @@ function placesSection() {
       const ms = mentorsAt[i.slug] || [];
       const rc = recordsAt[i.slug] || 0;
       const dc = destAt[i.slug] || 0;
-      const facts = [];
-      if (ms.length) facts.push(`<li data-en="${ms.length} mentor${ms.length > 1 ? 's' : ''} · ${ms.map((m) => m.fieldEn).join(' / ')}">${ms.length} 位导师 · ${ms.map((m) => m.fieldZh).join(' / ')}</li>`);
-      if (rc) facts.push(`<li data-en="${rc} live placement${rc > 1 ? 's' : ''}">${rc} 个在库课题</li>`);
-      if (dc) facts.push(`<li data-en="${dc} student${dc > 1 ? 's' : ''} admitted">${dc} 位学员录取</li>`);
-      if (!facts.length) facts.push(`<li data-en="Placement partner">课题合作机构</li>`);
+      // 三种关系用三个小标记，横向并排
+      const marks = [];
+      if (ms.length) marks.push(`<span class="place__mark place__mark--m" title="导师任教" data-en-title="Mentor on faculty">${ms.length} <i data-en="mentor${ms.length > 1 ? 's' : ''}">导师</i></span>`);
+      if (rc) marks.push(`<span class="place__mark place__mark--r" title="在库课题" data-en-title="Live placements">${rc} <i data-en="placement${rc > 1 ? 's' : ''}">课题</i></span>`);
+      if (dc) marks.push(`<span class="place__mark place__mark--d" title="学员录取" data-en-title="Students admitted">${dc} <i data-en="admitted">录取</i></span>`);
+      const field = ms.length ? `<span class="place__field" data-en="${ms.map((m) => m.fieldEn).join(' / ')}">${ms.map((m) => m.fieldZh).join(' / ')}</span>` : '';
       return `        <div class="place">
-          ${crestImg(i, 64)}
+          ${crestImg(i, 44)}
           <div class="place__body">
-            <h3 class="place__name">${i.en}</h3>
+            <h3 class="place__name">${short(i)}</h3>
             <p class="place__zh">${i.zh} · ${i.city}</p>
-            <ul class="place__facts">
-              ${facts.join('\n              ')}
-            </ul>
+            ${field}
           </div>
+          <div class="place__marks">${marks.join('')}</div>
         </div>`;
     }).join('\n');
     return `      <div class="place-region" data-reveal>
@@ -547,6 +663,7 @@ const PLAN = {
     { key: 'faq',       legacyStart: '<!-- ============================ FAQ ==', legacyEnd: '<!-- ============================ CTA ==', render: faqHome },
   ],
   'cases.html': [
+    { key: 'cases',        legacyStart: '<!-- ============================ 筛选 + 案例网格 ==', legacyEnd: '<!-- @build:records -->', render: casesSection },
     { key: 'records',      legacyStart: '<!-- ============================ 项目档案 ==', legacyEnd: '<!-- ============================ 深度案例 ==', render: recordsSection },
     { key: 'destinations', legacyStart: '<!-- ============================ 录取记录 ==', legacyEnd: '<!-- ============================ CTA ==', render: destinationsFull },
   ],
@@ -609,6 +726,30 @@ function patchNumbers(file, src) {
   return src;
 }
 
+/* 静态资源版本号：内容哈希，改了文件链接就变，绕过 GitHub Pages 的 10 分钟缓存 */
+const ASSETS = ['assets/css/base.css', 'assets/css/site.css', 'assets/js/i18n.js', 'assets/js/site.js'];
+const ver = {};
+ASSETS.forEach((a) => {
+  ver[a] = crypto.createHash('md5').update(fs.readFileSync(path.join(root, a))).digest('hex').slice(0, 8);
+});
+function stampAssets(src) {
+  ASSETS.forEach((a) => {
+    src = src.replace(new RegExp('(["\'])' + a.replace(/[.\/]/g, '\\$&') + '(\\?v=[0-9a-f]+)?(["\'])', 'g'), `$1${a}?v=${ver[a]}$3`);
+  });
+  return src;
+}
+
+/* 零散的手写数字：成立年份、关于页 CTA 的档案数 */
+function patchMisc(file, src) {
+  if (file === 'about.html') {
+    src = src
+      .replace(/<div class="stat__num"><span>\d{4}<\/span><\/div>(\s*<div class="stat__label" data-en="Founded")/, `<div class="stat__num"><span>2024</span></div>$1`)
+      .replace(/data-en="[^"]*verified files[^"]*"/, `data-en="${CASES.length} verified files — where each student started, what was changed, what failed along the way, and what the committee finally saw."`)
+      .replace(/[一二三四五六七八九十]+份经核验的档案|\d+ 份经核验的档案/, `${CASES.length} 份经核验的档案`);
+  }
+  return src;
+}
+
 let total = 0;
 for (const [file, jobs] of Object.entries(PLAN)) {
   const p = path.join(root, file);
@@ -618,8 +759,11 @@ for (const [file, jobs] of Object.entries(PLAN)) {
     total++;
   }
   src = patchNumbers(file, src);
+  src = patchMisc(file, src);
+  src = stampAssets(src);
   fs.writeFileSync(p, src, 'utf8');
   console.log(`  ${file.padEnd(14)} ${jobs.map((j) => j.key).join(' · ')}`);
 }
+console.log(`  资源版本  ${ASSETS.map((a) => path.basename(a) + '@' + ver[a]).join('  ')}`);
 
 console.log(`\n✓ 渲染完成：${total} 个区域 · 机构 ${INST.length} · 导师 ${MENTORS.length} · 课题 ${RECORDS.length} · 去向 ${DEST.length}`);

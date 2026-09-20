@@ -354,6 +354,50 @@
     });
   }
 
+  /* ---------- 案例档案展开 ----------
+     点「展开档案」在卡内展开五段记录；宽屏下展开的卡占满一行、左右分栏。
+  --------------------------------------------------------------- */
+  function caseArchive() {
+    $('.case__toggle').forEach(function (btn) {
+      var card = btn.closest('.case');
+      if (!card) return;
+      btn.addEventListener('click', function () {
+        var open = !card.classList.contains('is-open');
+        card.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) {
+          // 展开后把卡片顶到视口内
+          var top = card.getBoundingClientRect().top;
+          if (top < 90) window.scrollBy({ top: top - 110, behavior: reduced ? 'auto' : 'smooth' });
+        }
+      });
+    });
+  }
+
+  /* ---------- Hero 视差：背景层随滚动以不同速度移动 ---------- */
+  function parallax() {
+    if (reduced) return;
+    var glow = $('.hero__glow');
+    var crests = $('.hero__crests img');
+    var aside = $('.hero__aside');
+    if (!glow && !crests.length && !aside) return;
+
+    var ticking = false;
+    function frame() {
+      var y = window.scrollY;
+      if (y > window.innerHeight * 1.2) { ticking = false; return; }
+      if (glow) glow.style.transform = 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)';
+      crests.forEach(function (el, i) {
+        el.style.setProperty('--py', (y * (0.08 + i * 0.05)).toFixed(1) + 'px');
+      });
+      if (aside) aside.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+    }, { passive: true });
+  }
+
   /* ---------- 当前页导航高亮 ---------- */
   function activeNav() {
     var here = location.pathname.split('/').pop() || 'index.html';
@@ -365,7 +409,7 @@
 
   function boot() {
     nav(); burger(); marquee(); reveal(); counters();
-    faq(); filters(); scrollUi(); form(); activeNav(); tilt();
+    faq(); filters(); scrollUi(); form(); activeNav(); tilt(); caseArchive(); parallax();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

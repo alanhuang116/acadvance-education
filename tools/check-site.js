@@ -34,7 +34,7 @@ for (const p of Object.keys(src)) {
   /* ---------- 1. 本地资源引用是否存在 ---------- */
   const refs = [...s.matchAll(/(?:src|href)="(?!https?:|mailto:|tel:|data:|#)([^"]+)"/g)].map((m) => m[1]);
   for (const raw of new Set(refs)) {
-    const [file, hash] = raw.split('#');
+    const [file, hash] = raw.split('?')[0].split('#');
     if (file && !fs.existsSync(path.join(root, file))) {
       fail(`${p}：引用了不存在的文件 → ${file}`);
       continue;

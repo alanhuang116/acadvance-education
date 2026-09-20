@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/base.css?v=7e65edf9">
+<link rel="stylesheet" href="assets/css/site.css?v=a90ec53b">
 </head>
 
 <body>
@@ -99,28 +99,76 @@
   </div>
 </section>
 
+<!-- @build:cases -->
 <!-- ============================ 筛选 + 案例网格 ============================ -->
-<section class="section">
+<section class="section" id="cases">
   <div class="container">
+
+    <div class="stats stats--4 overlap-up" data-reveal>
+      <div class="stat">
+        <div class="stat__num"><span data-count="25">25</span></div>
+        <div class="stat__label" data-en="Case files, each expandable">份案例档案，每份可展开</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="118">118</span></div>
+        <div class="stat__label" data-en="Recorded outcomes">条去向记录</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="109">109</span></div>
+        <div class="stat__label" data-en="Placements logged">个课题档案</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="22">22</span></div>
+        <div class="stat__label" data-en="Institutions in the case files">所案例院校</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:clamp(56px,6vw,88px);">
+      <span class="eyebrow" data-reveal data-en="Case Files">案例档案</span>
+      <h2 class="display-2" data-reveal data-en="25 students. <span class=&quot;accent-italic&quot;>Every file opens</span>.">
+        二十五位学生，<span class="accent-italic">每份档案都能展开</span>
+      </h2>
+      <p class="lede" data-reveal
+         data-en="Click any card to open its five-part record: where the student started, what we diagnosed, what we changed, what went wrong, and what the committee finally saw. Names withheld at each family’s request.">
+        点开任意一张卡，看五段记录：起点、诊断、调整、受挫、结果。应家庭要求隐去姓名。
+      </p>
+    </div>
 
     <div class="filters" data-filter-bar="cases" role="group" aria-label="案例筛选" data-en-aria-label="Filter case studies">
       <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
-        <span data-en="All">全部</span><span class="filter__count">6</span>
+        <span data-en="All">全部</span><span class="filter__count">25</span>
       </button>
-      <button class="filter" type="button" data-filter="undergrad" aria-pressed="false">
-        <span data-en="Undergraduate">本科去向</span><span class="filter__count">4</span>
+      <button class="filter" type="button" data-filter="ug" aria-pressed="false">
+        <span data-en="Undergraduate">本科</span><span class="filter__count">14</span>
       </button>
-      <button class="filter" type="button" data-filter="master" aria-pressed="false">
-        <span data-en="Master's">硕士去向</span><span class="filter__count">1</span>
+      <button class="filter" type="button" data-filter="ms" aria-pressed="false">
+        <span data-en="Master’s">硕士</span><span class="filter__count">7</span>
       </button>
       <button class="filter" type="button" data-filter="phd" aria-pressed="false">
-        <span data-en="Doctoral">博士去向</span><span class="filter__count">1</span>
+        <span data-en="Doctoral">博士</span><span class="filter__count">4</span>
+      </button>
+      <button class="filter" type="button" data-filter="life" aria-pressed="false">
+        <span data-en="Life Sciences &amp; Medicine">生命与医学</span><span class="filter__count">5</span>
+      </button>
+      <button class="filter" type="button" data-filter="eng" aria-pressed="false">
+        <span data-en="Engineering">工程</span><span class="filter__count">5</span>
+      </button>
+      <button class="filter" type="button" data-filter="comp" aria-pressed="false">
+        <span data-en="Computing &amp; Data">计算与数据</span><span class="filter__count">7</span>
+      </button>
+      <button class="filter" type="button" data-filter="phys" aria-pressed="false">
+        <span data-en="Physical Sciences">物理与化学</span><span class="filter__count">4</span>
+      </button>
+      <button class="filter" type="button" data-filter="env" aria-pressed="false">
+        <span data-en="Environment &amp; Earth">环境与地球</span><span class="filter__count">1</span>
+      </button>
+      <button class="filter" type="button" data-filter="social" aria-pressed="false">
+        <span data-en="Social Sciences &amp; Humanities">社科与人文</span><span class="filter__count">3</span>
       </button>
     </div>
-    <div class="grid grid--3" data-filter-grid="cases">
 
-      <!-- 1 -->
-      <article class="card card--hover case" data-tags="undergrad us" data-reveal>
+    <div class="grid grid--3" data-filter-grid="cases">
+      <article class="card card--hover case" data-tags="ug life" data-reveal>
         <div class="case__top">
           <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
           <img class="case__crest" src="assets/img/logos/princeton.svg" alt="Princeton University" width="46" height="46" loading="lazy">
@@ -129,123 +177,1177 @@
           <p class="case__from" data-en="Public school int’l division · started Grade 10">国内公立国际部 · 高一启动</p>
           <h3 class="case__result">Princeton University</h3>
           <p class="case__prog" data-en="Undergraduate · Sciences">本科 · 理科方向</p>
-          <p class="case__quote" data-en="Two years on a single question. From literature reading in Grade 10 to an analysis he could defend line by line in Grade 12. The family wrote the application themselves; our job was to make sure he had something to write about.">
-            两年只追一个问题。从高一读文献起步，到高三交出一份能逐行为之辩护的分析——申请材料由家庭自己完成，我们只负责让他有东西可写。
-          </p>
+          <p class="case__quote" data-en="Two years on a single question. From literature reading in Grade 10 to an analysis he could defend line by line in Grade 12. The family wrote the application themselves; our job was to make sure he had something to write about.">两年只追一个问题。从高一读文献起步，到高三交出一份能逐行为之辩护的分析——申请材料由家庭自己完成，我们只负责让他有东西可写。</p>
           <div class="case__foot">
             <span class="case__stat"><b>24</b><span data-en="months, institute track">个月长线培养</span></span>
             <span class="case__stat"><b>1</b><span data-en="mentor throughout">位导师全程</span></span>
             <span class="case__stat"><b>1</b><span data-en="independent analysis">份独立分析</span></span>
           </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-001">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-001">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 10, excellent grades, many activities, none lasting more than three months. In our first conversation he said he had long wondered why the immune system attacks itself.">高一，成绩很好，活动很多，但没有一件事做超过三个月。第一次谈话里他说对免疫系统"为什么会攻击自己"这件事想了很久。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="No shortage of ability — a shortage of continuity. We recommended dropping five of seven activities and keeping one thread.">不缺能力，缺连续性。我们建议砍掉七项活动里的五项，只留一条线。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Onto the institute track: year one reading and group meetings, year two an owned sub-question on antibody waning, doing the cleaning and visualisation.">进入长线培养轨道，第一年读文献与跟组会，第二年领一个关于抗体衰减的子问题，做数据清洗与可视化。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="In the spring of year two his first analysis was found to have conflated two cohorts; three months of figures were discarded. He redid them.">第二年春天，他做的第一版分析被导师指出混淆了两个队列，三个月的图作废。他重做了。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="By the autumn of Grade 12: an independent analysis he could explain line by line, and a letter that told the cohort story. Admitted to Princeton.">高三秋季，一份他能逐行解释的独立分析，加一封写了"混淆队列"那件事的推荐信。录取普林斯顿。</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </article>
 
-      <article class="card card--hover case" data-tags="undergrad us" data-reveal>
+      <article class="card card--hover case" data-tags="ug comp" data-reveal>
         <div class="case__top">
           <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
           <img class="case__crest" src="assets/img/logos/princeton.svg" alt="Princeton University" width="46" height="46" loading="lazy">
         </div>
         <div class="case__body">
-          <p class="case__from" data-en="International school · started Grade 11">国内国际学校 · 高二启动</p>
+          <p class="case__from" data-en="US high school · started Grade 11">美高 · 高二启动</p>
           <h3 class="case__result">Princeton University</h3>
-          <p class="case__prog" data-en="Undergraduate · Engineering">本科 · 工科方向</p>
-          <p class="case__quote" data-en="A year behind her cohort. Our advice was to drop four scattered activities and keep one narrowly scoped project. Narrow is what makes it deep.">
-            起步比同届晚一年，我们的建议是砍掉四项零散活动，只保留一个范围收得极小的课题。做窄，才做得深。
-          </p>
+          <p class="case__prog" data-en="Undergraduate · Engineering">本科 · 工程方向</p>
+          <p class="case__quote" data-en="He could code, but had never written code for someone else to use. A remote policy-data placement gave him his first experience of another person needing to run his program.">他会写代码，但从没为别人写过代码。一段可远程的政策数据课题，让他第一次经历了"别人要跑我的程序"是什么感觉。</p>
           <div class="case__foot">
-            <span class="case__stat"><b>14</b><span data-en="months in research">个月科研</span></span>
-            <span class="case__stat"><b>4</b><span data-en="activities dropped">项活动砍掉</span></span>
-            <span class="case__stat"><b>1</b><span data-en="conference poster">篇会议海报</span></span>
+            <span class="case__stat"><b>11</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="merged codebase">个并入代码库</span></span>
+            <span class="case__stat"><b>3</b><span data-en="README rewrites">轮 README 重写</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-002">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-002">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 11 at a US high school, a pile of programming awards, a GitHub full of toy projects — none with a second user.">美高高二，编程竞赛奖项一堆，GitHub 上全是自己玩的小项目，没有一个有第二个使用者。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Technically fine; the gap was that he had never delivered. A committee cannot tell a coder from someone who can work in a team.">技术没问题，问题是没有"交付"过。招生官分不清一个会写代码的人和一个能在团队里工作的人。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Matched to a segregation-index project on commuting data, with one clear task: rewrite the researcher’s prototype into a reproducible module.">匹配到一个通勤数据的居住隔离指标课题，任务很明确：把研究员的原型代码重写成可复现的模块。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The README came back three times. The first time the mentor’s only comment was: “I followed your steps and it does not run.”">README 被退回三次。第一次导师的评语只有一句："我按你写的步骤跑不起来。"</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The module was merged with his name in the commit log. His application was about that, not the awards. Admitted to Princeton.">模块并入课题组代码库，提交记录里有他的名字。申请季他写的是这件事，不是奖项。录取普林斯顿。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
 
-      <article class="card card--hover case" data-tags="master us" data-reveal>
+      <article class="card card--hover case" data-tags="ms life" data-reveal>
         <div class="case__top">
-          <span class="pill pill--gold" data-en="Master's">硕士去向</span>
-          <img class="case__crest" src="assets/img/logos/harvard.svg" alt="Harvard Medical School" width="46" height="46" loading="lazy">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/harvard.svg" alt="Harvard University" width="46" height="46" loading="lazy">
         </div>
         <div class="case__body">
-          <p class="case__from" data-en="Mainland key university · Life Sciences">内地重点本科 · 生命科学</p>
-          <h3 class="case__result">Harvard Medical School</h3>
-          <p class="case__prog" data-en="Master's programme">硕士项目</p>
-          <p class="case__quote" data-en="Two laboratory placements and one co-authored paper. What actually mattered was the assay that failed in month seven — she rebuilt the protocol, and that recovery became the part interviewers asked about most.">
-            两段实验室经历、一篇共同署名论文。真正起作用的是第七个月那次实验翻车——她重建了方案，而这段经历成了面试里被追问最多的部分。
-          </p>
+          <p class="case__from" data-en="Mainland C9 university · Biology · started junior year">华五本科 · 生物科学 · 大三启动</p>
+          <h3 class="case__result">Harvard University</h3>
+          <p class="case__prog" data-en="Harvard Medical School · Master’s">医学院 · 硕士</p>
+          <p class="case__quote" data-en="Twenty-two months across two laboratories, two co-authored papers, and a research statement that argued with the field rather than summarising it.">二十二个月，两个实验室，两篇共同署名论文，以及一份敢于和领域内主流观点争辩、而非复述文献的研究计划书。</p>
           <div class="case__foot">
             <span class="case__stat"><b>22</b><span data-en="months">个月</span></span>
-            <span class="case__stat"><b>2</b><span data-en="laboratories">个实验室</span></span>
-            <span class="case__stat"><b>1</b><span data-en="co-authored paper">篇共同署名</span></span>
+            <span class="case__stat"><b>2</b><span data-en="papers">篇论文</span></span>
+            <span class="case__stat"><b>4</b><span data-en="offers">个 offer</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-003">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-003">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Junior year, excellent transcript, one summer of research, a statement describing the field rather than her place in it. Two of three recommenders had taught her only in lectures.">大三，成绩优异，一个暑期科研，个人陈述在描述整个领域而不是她在其中的位置。三位推荐人里两位只在大课上教过她。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Not a shortage of achievement — a shortage of ownership. Nothing in the file was hers to defend.">不是成就不够，是没有归属。档案里没有一样东西是她能为之辩护的。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Into an immunology laboratory on a cytokine-signalling sub-question; two unrelated internships dropped. Roadmap: eleven months of technique and data, five of writing.">进入一个免疫学实验室做细胞因子信号的子问题，砍掉两段不相关实习。路线图：技术与数据 11 个月，写作 5 个月。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="In month seven the primary assay failed to replicate; four months of data were lost. She rebuilt the protocol, and that recovery became the strongest paragraph in her statement.">第七个月主实验无法复现，四个月的数据作废。她重建了方案，这段经历后来成了研究计划书里最有力的一段。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Second author on one journal paper, co-author on another. Three of five interview questions were about her data. Admitted to a master’s programme at Harvard Medical School.">一篇期刊论文第二作者，一篇共同作者。面试里五个问题三个问她的数据。录取哈佛医学院硕士项目。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
 
-      <article class="card card--hover case" data-tags="undergrad us" data-reveal>
+      <article class="card card--hover case" data-tags="ug eng" data-reveal>
         <div class="case__top">
           <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
-          <img class="case__crest" src="assets/img/logos/berkeley.svg" alt="UC Berkeley" width="46" height="46" loading="lazy">
+          <img class="case__crest" src="assets/img/logos/berkeley.svg" alt="University of California, Berkeley" width="46" height="46" loading="lazy">
         </div>
         <div class="case__body">
-          <p class="case__from" data-en="Public high school · started Grade 11">国内公立高中 · 高二启动</p>
-          <h3 class="case__result">UC Berkeley</h3>
-          <p class="case__prog" data-en="Undergraduate · Computing">本科 · 计算方向</p>
-          <p class="case__quote" data-en="Excellent coursework, nothing that belonged to him. A remote-eligible computational project produced a module still running in the group’s stack today.">
-            课程分数很好，却没有一样东西是属于他自己的。一个可远程推进的计算课题，产出了至今仍在课题组系统里运行的模块。
-          </p>
+          <p class="case__from" data-en="Shenzhen · IB curriculum · started Grade 10">深圳 · IB 课程 · 高一启动</p>
+          <h3 class="case__result">University of California, Berkeley</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="A girl who liked taking things apart. We did not send her to “do research”; we put her in a device laboratory and had her carry a sensor prototype to its seventh version.">一个喜欢拆东西的女孩。我们没有让她去做"科研"，而是让她在一个器件实验室里把一台传感器的原型做到第七版。</p>
           <div class="case__foot">
-            <span class="case__stat"><b>10</b><span data-en="months">个月</span></span>
-            <span class="case__stat"><b>1</b><span data-en="merged module">个并入模块</span></span>
-            <span class="case__stat"><b>0</b><span data-en="on-site weeks needed">次现场驻留</span></span>
+            <span class="case__stat"><b>2</b><span data-en="summers">个暑期</span></span>
+            <span class="case__stat"><b>7</b><span data-en="prototype versions">版原型</span></span>
+            <span class="case__stat"><b>1</b><span data-en="numbered archive">份编号存档</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-004">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-004">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 10, strong predicted IB, almost no STEM experience outside class — “nobody told me what I could do”, she said.">高一，IB 预估分很高，课外几乎没有理工类经历——她自己说"没人告诉我可以做什么"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Obvious practical ability with no outlet. Suited to engineering build rather than theory.">动手能力明显，但没有出口。适合工程实现而不是理论。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Two on-site summers in a biomedical engineering laboratory, carrying a wearable sensor’s motion-artefact correction from prototype to testable.">两个暑期在地进入一个生物医学工程实验室，任务是把一款可穿戴传感器的运动伪影校正模块从原型做到可测试。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Version three burned out the circuit. The mentor did not criticise; he numbered the dead board and archived it as version three.">第三版把电路烧了。导师没有批评，只是把烧掉的板子编号存档，作为第三版。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Version seven passed testing. The interviewer’s most repeated question was how she got from three to seven. Admitted to Berkeley.">第七版通过测试。面试官问得最多的是"你怎么从第三版走到第七版"。录取伯克利。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
 
-      <article class="card card--hover case" data-tags="undergrad us" data-reveal>
+      <article class="card card--hover case" data-tags="ug comp" data-reveal>
         <div class="case__top">
           <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
           <img class="case__crest" src="assets/img/logos/washington.svg" alt="University of Washington" width="46" height="46" loading="lazy">
         </div>
         <div class="case__body">
-          <p class="case__from" data-en="Int’l division · started Grade 11">国内国际部 · 高二启动</p>
+          <p class="case__from" data-en="Hangzhou · public school int’l division · started Grade 11">杭州 · 公立国际部 · 高二启动</p>
           <h3 class="case__result">University of Washington</h3>
-          <p class="case__prog" data-en="Undergraduate · Public Health">本科 · 公共卫生方向</p>
-          <p class="case__quote" data-en="A year on an international non-profit’s programme-evaluation team supplied what her file was missing — not passion, but quantitative evidence.">
-            一年国际公益组织的项目评估工作，补上了她档案里最缺的那部分——不是热情，是量化证据。
-          </p>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="A late start and a tight window. One tightly scoped education-data project beat the four scattered activities we advised her to drop.">起步晚，时间紧。一个范围收得很小的教育数据课题，胜过我们建议她放弃的那四项零散活动。</p>
           <div class="case__foot">
-            <span class="case__stat"><b>12</b><span data-en="months">个月</span></span>
-            <span class="case__stat"><b>1</b><span data-en="published report">份公开报告</span></span>
-            <span class="case__stat"><b>1</b><span data-en="named supervisor">位具名主管</span></span>
+            <span class="case__stat"><b>8</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>4</b><span data-en="activities dropped">项活动砍掉</span></span>
+            <span class="case__stat"><b>1</b><span data-en="reproducible analysis">份可复现分析</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-005">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-005">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Spring of Grade 11, little more than a year to applications. Volunteering, MUN, a school magazine, two summer schools — none related to the others.">高二下，距离申请只有一年多。活动栏里有志愿、模联、校刊、两个夏校，彼此无关。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Not enough time for two things; only one. She had a genuine curiosity about why some classmates got worse the more tutoring they had.">时间不够做两件事，只能做一件。她对"为什么有的同学越补课成绩越差"这个问题有真实的好奇。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote online-learning-data project, six to eight hours a week, narrowed to “under what conditions does the relationship between practice time and accuracy reverse”.">一个可远程的在线学习平台数据课题，每周六到八小时，问题被收窄到"练习时长与正确率的关系在什么条件下反转"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="In month four she wanted to widen the question. The mentor refused: “Get the small one right first.” She was not pleased.">第四个月她想把问题扩大，导师拒绝了："先把小的做对。"她当时很不服气。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="An analysis a stranger could run, and a letter that recorded her wanting to widen the question and later conceding it was a mistake. Admitted to the University of Washington.">一份别人能跑的分析，一封写了"她想扩大问题、后来自己承认扩大是错的"的推荐信。录取华盛顿大学。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
 
-      <article class="card card--hover case" data-tags="phd us" data-reveal>
+      <article class="card card--hover case" data-tags="phd comp" data-reveal>
         <div class="case__top">
           <span class="pill pill--gold" data-en="Doctoral">博士去向</span>
           <img class="case__crest" src="assets/img/logos/buffalo.svg" alt="University at Buffalo" width="46" height="46" loading="lazy">
         </div>
         <div class="case__body">
-          <p class="case__from" data-en="Mainland undergraduate · Engineering">内地本科 · 工科</p>
+          <p class="case__from" data-en="Mainland non-elite university · CS · started senior year">内地非重点本科 · 计算机 · 大四启动</p>
           <h3 class="case__result">University at Buffalo</h3>
-          <p class="case__prog" data-en="PhD · Fully funded">博士 · 全额奖学金</p>
-          <p class="case__quote" data-en="A previous cycle, run school-first, produced two rejections. We did not touch his application — we supplied the piece that was actually missing: a research record that showed an advisor what he could do.">
-            前一轮申请以「学校优先」策略两度受挫。我们没有碰他的申请，只是补上了真正缺的那一块：一段能让导师看懂他能做什么的科研记录。
-          </p>
+          <p class="case__prog" data-en="Doctoral · Fully funded">博士 · 全额奖学金</p>
+          <p class="case__quote" data-en="Six applications, zero interviews the previous cycle. We re-ran the search by problem rather than ranking, and his code happened to meet a professor’s open question.">上一轮六投零面试。我们改按"问题"而非"排名"检索导师，他的代码恰好碰上一位教授待解的问题。</p>
           <div class="case__foot">
-            <span class="case__stat"><b>16</b><span data-en="months">个月</span></span>
-            <span class="case__stat"><b>1</b><span data-en="first-author paper">篇一作论文</span></span>
+            <span class="case__stat"><b>2</b><span data-en="cycles">个申请季</span></span>
+            <span class="case__stat"><b>3</b><span data-en="advisors contacted">位导师去信</span></span>
             <span class="case__stat"><b>1</b><span data-en="funded offer">个全奖</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-006">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-006">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Final year at a non-elite university, no publication, a laboratory no US committee would recognise, six rejections the previous cycle.">非重点本科最后一年，没有论文，实验室的名字美国委员会不认得，上一季六份申请全拒。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Not weak — invisible. Everything in the file was institutional, nothing personal; and he had applied school-first, to departments where nobody worked on his problem.">不是弱，是不可见。档案里全是机构属性，没有个人属性；而且他按学校投的，那些系里没人做他的东西。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Nine months on a remote computational placement overlapping with code he had already written. He rebuilt it to a standard a stranger could run; the group merged it.">九个月一个可远程计算课题，问题与他自己写过的代码重叠。他把代码重建到陌生人能跑的标准，课题组合并了。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="He insisted on reapplying to three of the same departments. We said the analysis showed nobody there worked on his question. He applied anyway; all three rejected him.">他坚持再投同样的三个系。我们说分析显示那里没有人做他的问题。他还是投了，三个全拒。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Meanwhile a department we had found by searching for the problem offered a fully funded doctoral place. The family made a decision we advised against — their right.">与此同时，一个我们按问题检索出来的系给了全额资助的博士席位。家庭做了我们不建议的决定，那是他们的权利。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
 
-      <p class="case-grid__empty" data-filter-empty hidden data-en="No case studies match this filter yet. Try another category.">
-        当前筛选条件下暂无案例，请尝试其他分类。
-      </p>
+      <article class="card card--hover case" data-tags="ug life" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/cornell.svg" alt="Cornell University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Beijing · int’l division · started Grade 11">北京 · 公立国际部 · 高二启动</p>
+          <h3 class="case__result">Cornell University</h3>
+          <p class="case__prog" data-en="Biological Engineering · BS · Early Decision">生物工程 · 本科 · ED</p>
+          <p class="case__quote" data-en="Strong scores, no story. Nine months in an immunology laboratory gave her one honest question to chase.">标化很漂亮，却讲不出一个故事。九个月的免疫学实验室经历，给了她一个诚实的问题去追。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>9</b><span data-en="months in lab">个月科研</span></span>
+            <span class="case__stat"><b>1</b><span data-en="conference poster">篇会议海报</span></span>
+            <span class="case__stat"><b>6</b><span data-en="activities dropped">项活动砍掉</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-007">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-007">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Eleven activities, none connected. In the first conversation she spent twenty minutes on why her grandmother’s autoimmune diagnosis had never been explained to the family.">十一项活动，彼此无关。第一次谈话她讲了二十分钟外婆的自身免疫病为什么从没人向家里解释清楚。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="A file that read as diligent and interchangeable. Those twenty minutes were the thread; the application did not mention them.">档案读起来"努力但可替代"。那二十分钟才是线索，而申请材料里只字未提。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Six activities dropped; into the remote data track of an immunology laboratory: screening, image quantification, then her own analysis, eight hours a week.">砍掉六项活动，进入免疫学实验室的远程数据方向：文献筛选、图像定量、独立分析，每周八小时。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="She wanted a journal publication. The mentor said the work did not merit one and would not support submission. We backed the mentor.">她想要期刊发表。导师说不够格，拒绝支持投稿。我们站在导师一边。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The work went to a regional conference as a poster she defended in person. Admitted Early Decision; the interviewer spent the whole conversation on the poster.">工作以海报投往区域会议，她本人到场答辩。ED 录取康奈尔，面试官整场都在谈那张海报。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug life" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/hku.svg" alt="The University of Hong Kong" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Shenzhen · IB curriculum · started Grade 10">深圳 · IB 课程 · 高一启动</p>
+          <h3 class="case__result">The University of Hong Kong</h3>
+          <p class="case__prog" data-en="Medicine · MBBS">内外全科医学 · 本科</p>
+          <p class="case__quote" data-en="Two years of clinical-adjacent public health work with an international NGO, and a district screening dataset she helped collect and clean herself.">两年在国际公益组织做临床邻近的公共卫生工作，以及一份由她亲手参与采集与清洗的区级筛查数据集。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>24</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="published report">份公开报告</span></span>
+            <span class="case__stat"><b>42</b><span data-en="IB points">IB</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-008">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-008">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Wanted medicine; the only relevant entry was two days of hospital volunteering, handing out leaflets.">想学医，简历上只有一次医院志愿——两天，发传单。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Medical schools do not look for wanting medicine; they look for having seen real patients and real data. She had neither.">医学院看的不是"想学医"，是"见过真实的病人和真实的数据"。她两样都没有。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Onto an international health NGO’s programme-evaluation team: field collection for a community screening, then responsibility for cleaning the data.">进入一个国际卫生公益组织的项目评估团队，参与社区筛查的田野采集，然后负责数据清洗。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Thirty percent of the first batch was lost to form errors. She designed a new collection form herself.">第一批采集的数据有三成因为表格填错作废。她自己设计了新的采集表。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Her name appears in the organisation’s published report. Admitted to HKU Medicine.">她的名字进入机构的公开报告。港大医学院录取。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug phys" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/ntu.svg" alt="Nanyang Technological University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Suzhou · international school · started Grade 10">苏州 · 国际学校 · 高一启动</p>
+          <h3 class="case__result">Nanyang Technological University</h3>
+          <p class="case__prog" data-en="Materials Science · BEng">材料科学 · 本科</p>
+          <p class="case__quote" data-en="Three years on one materials question, from reading in Grade 10 to co-authorship on a conference paper in Grade 12. The letter almost wrote itself.">三年只追一个材料学问题：高一读文献，高三共同署名一篇会议论文。推荐信几乎是自己写出来的。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>3</b><span data-en="years, institute track">年长线培养</span></span>
+            <span class="case__stat"><b>1</b><span data-en="conference paper">篇会议论文</span></span>
+            <span class="case__stat"><b>1</b><span data-en="mentor throughout">位导师全程</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-009">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-009">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 10, a long-standing curiosity about why phone batteries swell, and otherwise a blank.">高一，对"手机电池为什么会鼓包"好奇了很久，除此之外一片空白。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Early start, clear direction — a candidate for the long track.">起步早，方向明确，适合长线。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Onto a materials professor’s long track: year one reading, year two a sub-question on electrode cycling tests, year three contributing to the manuscript.">进入一位材料教授的长线轨道。第一年读文献，第二年负责电极材料循环测试的一个子问题，第三年参与成稿。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Stuck for four months in year two: cycling data would not repeat. The mentor did not change the topic; he made her find the cause — glovebox humidity.">第二年卡了四个月，测试数据的重复性一直不达标。导师没有换题，让她把问题找出来——是手套箱的湿度。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Co-author on the conference paper; the letter described the four months. Admitted to NTU.">共同作者出现在会议论文上。推荐信里写了那四个月。录取南洋理工。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug env" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/florida.svg" alt="University of Florida" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Nanjing · A-Level · started Grade 11">南京 · A-Level · 高二启动</p>
+          <h3 class="case__result">University of Florida</h3>
+          <p class="case__prog" data-en="Environmental Engineering · BS · Merit award">环境工程 · 本科 · 奖学金</p>
+          <p class="case__quote" data-en="Late start, tight window. One well-scoped water-quality project beat the four scattered activities we advised him to drop.">启动晚，窗口紧。一个范围收得很小的水质研究项目，胜过我们建议他放弃的那四项零散活动。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>7</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>4</b><span data-en="activities dropped">项活动砍掉</span></span>
+            <span class="case__stat"><b>1</b><span data-en="scholarship">份奖学金</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-010">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-010">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 11, predicted A*AA, four unrelated summer schools.">高二，A-Level 预估 A*AA，活动是四个互不相关的夏校。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Seven months allows one thing. He cared genuinely about the river at home.">七个月只能做一件事。他对家乡河道的水质有真实的关心。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A microplastics-settling project: on-site experiments over the summer, remote data curation during term.">一个灌溉水微塑料沉降的课题，暑期在地做实验，学期内远程整理数据。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first batch of samples was lost to improper storage.">第一批样品因为保存不当全部作废。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="An experimental dataset and the methods section of a paper. Admitted to the University of Florida with a merit award.">一份实验数据集和论文的方法部分。录取佛罗里达大学，附优秀奖学金。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug social" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/upenn.svg" alt="University of Pennsylvania" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Shanghai · US-curriculum school · started Grade 10">上海 · 美高 · 高一启动</p>
+          <h3 class="case__result">University of Pennsylvania</h3>
+          <p class="case__prog" data-en="Undergraduate · Early Decision">本科 · ED</p>
+          <p class="case__quote" data-en="A humanities student everyone urged to “do research”. We had her do what she was actually good at: fourteen weeks of text analysis inside a political science project.">一个文科生，被所有人劝去做"科研"。我们让她去做她真正会做的事：在一个政治学课题里做十四周的文本分析。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>14</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>1</b><span data-en="policy commentary">份政策评论</span></span>
+            <span class="case__stat"><b>12</b><span data-en="rounds of rebuttal">轮反驳</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-011">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-011">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Top of her class in the humanities, pushed by her parents into a biology laboratory for two months. She hated it.">文科拔尖，被家长要求去做生物实验，做了两个月，讨厌。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="The direction was wrong, not the ability.">方向错了，不是能力错了。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Switched to a project on topic evolution in UN resolution texts, writing a weekly policy commentary rebutted line by line by another student.">换到一个联合国决议文本的议题演变课题，每周写一篇政策评论，由另一名学生逐句反驳。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first four weeks’ commentaries were dismissed as “all adjectives”.">前四周的评论被批"全是形容词"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The twelfth week’s commentary was forwarded by the mentor to a colleague. Admitted Early Decision to Penn.">第十二周的评论被导师转给了一位同事。ED 录取宾大。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug eng" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/michigan.svg" alt="University of Michigan" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Chengdu · public high school · started Grade 11">成都 · 公立高中 · 高二启动</p>
+          <h3 class="case__result">University of Michigan</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="A student from the public system, with no concept of “activities”. An EV battery-ageing data project gave him his first piece of work that was his own.">公立体系的学生，没有"活动"这个概念。一个电动车电池老化的数据课题，让他第一次拥有了一件属于自己的作品。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>10</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="reproducible code">份可复现代码</span></span>
+            <span class="case__stat"><b>0</b><span data-en="other activities">项其他活动</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-012">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-012">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Public high school, provincial science-olympiad award, an almost empty activities list.">公立高中，理科竞赛省奖，课外活动栏几乎空白。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="A blank is at least clean. One thing done deeply beats ten done shallowly.">空白反而干净。一件做透的事比十件做浅的事强。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote project linking battery ageing to driving data, six hours a week.">可远程的电池老化与驾驶数据关联课题，每周六小时。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Silent in English-language group meetings for two months. The mentor had him post one written question to the channel before each meeting.">英文组会前两个月一句话没说过。导师让他每周提前写好一个问题发到群里。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Analysis code with a README. Admitted to Michigan.">一份带 README 的分析代码。录取密歇根。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug social" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/toronto.svg" alt="University of Toronto" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Guangzhou · international school · started Grade 10">广州 · 国际学校 · 高一启动</p>
+          <h3 class="case__result">University of Toronto</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="She wanted economics but could only recite theory. A minimum-wage panel-data project taught her that economics is arguing with data.">她想学经济，但只会背理论。一个最低工资面板数据的课题让她明白：经济学是用数据吵架。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>14</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>1</b><span data-en="panel analysis">份面板分析</span></span>
+            <span class="case__stat"><b>3</b><span data-en="robustness checks">组稳健性检验</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-013">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-013">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Grade 10, two economics summer-school certificates, never touched a row of data.">高一，经济学夏校证书两张，没碰过一行数据。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Knew the concepts; did not know how concepts get tested.">知道概念，不知道概念怎么被检验。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote labour-economics project: reproduce a published minimum-wage study, then add robustness checks.">远程劳动经济学课题，任务是复现一篇已发表的最低工资研究，再加一组稳健性检验。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Her reproduction disagreed with the paper by a sign. Five weeks to find why: a different industry classification.">复现结果和原文差了一个符号。花了五周找到原因——原文用了不同的行业分类。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Those five weeks became the core of her essay. Admitted to Toronto.">那五周成了她文书的主体。录取多伦多大学。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug phys" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/imperial.svg" alt="Imperial College London" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Beijing · A-Level · started Grade 11">北京 · A-Level · 高二启动</p>
+          <h3 class="case__result">Imperial College London</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="A chemistry olympiad competitor used to problems with answers. A catalyst-screening project confronted him for the first time with a question nobody could answer.">化学竞赛选手，习惯了"有标准答案"。一个催化剂筛选课题让他第一次面对没人知道答案的问题。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>16</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>1</b><span data-en="screening dataset">份筛选数据</span></span>
+            <span class="case__stat"><b>40</b><span data-en="repeat runs">次重复实验</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-014">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-014">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A national chemistry-olympiad award, zero laboratory experience.">化学竞赛国奖，实验室经验为零。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Strong problem-solver, but had never faced uncertainty.">解题能力强，但不会面对不确定性。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="On site over the summer in a catalysis laboratory: selectivity screening of copper catalysts, forty repeat runs.">暑期在地进入催化实验室，做铜基催化剂的选择性筛选，四十次重复实验。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first ten runs showed no pattern at all. He assumed he had erred; the mentor said no — this is what it actually looks like.">前十次实验数据全无规律。他以为自己做错了；导师说没有，这就是真实的样子。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="His screening data became a table in the paper. Admitted to Imperial.">筛选数据进了论文的一张表。录取帝国理工。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug comp" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/nus.svg" alt="National University of Singapore" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Singapore · local secondary school · started Year 3">新加坡 · 本地中学 · 高一启动</p>
+          <h3 class="case__result">National University of Singapore</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="Local student, local university, local mentor. The point of this file is that you do not have to go abroad to do something real.">本地学生，本地大学，本地导师。这个案例的价值在于说明：不出国也能做真的。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>18</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="benchmark report">份评测报告</span></span>
+            <span class="case__stat"><b>1</b><span data-en="local mentor">位本地导师</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-015">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-015">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A Singapore secondary school, good programming foundations, a family hoping for “research in America”.">新加坡本地中学，编程基础好，家里希望"去美国做科研"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="The best mentor was ten kilometres away; no need to cross half the planet.">最好的导师就在本地，没必要跨半个地球。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Onto a local professor’s project on factual-consistency evaluation of language-model outputs.">进入一位本地教授的课题，做语言模型输出的事实一致性评测。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first evaluation set was found to have inconsistent labelling criteria; redone.">评测集第一版被指出标注标准不一致，重做。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The benchmark report was cited by the group. Admitted to NUS.">评测报告被课题组引用。录取新加坡国立大学。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ug social" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Undergraduate">本科去向</span>
+          <img class="case__crest" src="assets/img/logos/ucla.svg" alt="University of California, Los Angeles" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Los Angeles · US high school · started Grade 11">洛杉矶 · 美高 · 高二启动</p>
+          <h3 class="case__result">University of California, Los Angeles</h3>
+          <p class="case__prog" data-en="Undergraduate">本科</p>
+          <p class="case__quote" data-en="He wanted urban studies. We had him walk one neighbourhood for twenty hours before reading any theory.">他想做城市研究。我们让他先在一个街区走满二十小时，再读理论。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>20</b><span data-en="hours walked">小时步行</span></span>
+            <span class="case__stat"><b>1</b><span data-en="behaviour map">张行为地图</span></span>
+            <span class="case__stat"><b>12</b><span data-en="weeks">周</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-016">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-016">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A US high school, interested in urban planning, widely read, never in the field.">美高，对城市规划有兴趣，读过很多书，没出过门。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Plenty of theory, zero observation.">理论很多，观察为零。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A stationary-observation project on public-space use: walk first, draw, then analyse.">一个公共空间使用行为的定点观察课题，先走，后画，再分析。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="His first map was rejected as showing what should be there rather than what was.">第一版地图被导师指出全是"应该有什么"，没有"实际有什么"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="A behaviour map entered the group’s report. Admitted to UCLA.">一张行为地图进入课题组报告。录取 UCLA。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms comp" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/yale.svg" alt="Yale University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Shanghai · 985 university · Applied Mathematics">上海 · 985 本科 · 应用数学</p>
+          <h3 class="case__result">Yale University</h3>
+          <p class="case__prog" data-en="Statistics &amp; Data Science · MS">统计与数据科学 · 硕士</p>
+          <p class="case__quote" data-en="A mid-class GPA. What moved the file was a causal-inference project on education data — done properly and written up honestly, failures included.">GPA 在班级中游。真正起作用的是一个教育数据上的因果推断项目——做得规范、写得诚实，连失败的部分也照实写了。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>11</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="preprint">篇预印本</span></span>
+            <span class="case__stat"><b>3.4</b><span data-en="GPA">GPA</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-017">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-017">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Solid mathematics, GPA 3.4, no research at all.">数学基础扎实，GPA 3.4，没有任何科研。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="The GPA could not be changed; what could was whether there was one memorable thing.">GPA 改不了，能改的是"有没有一件让人记住的事"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote causal-inference project re-analysing a published education intervention.">远程因果推断课题，重做一篇已发表教育干预研究的分析。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The reproduction failed — the published effect vanished in her analysis. She wrote that into the preprint.">复现失败——原文的效应在她的分析里消失了。她把这件事写进了预印本。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="An honest preprint. Admitted to Yale’s statistics master’s.">一篇诚实的预印本。录取耶鲁统计硕士。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms life" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/emory.svg" alt="Emory University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Guangzhou · medical undergraduate">广州 · 临床医学本科</p>
+          <h3 class="case__result">Emory University</h3>
+          <p class="case__prog" data-en="Public Health · MPH · Scholarship">公共卫生 · 硕士 · 奖学金</p>
+          <p class="case__quote" data-en="Clinically strong but epidemiologically thin. A year on an NGO programme-evaluation team supplied the quantitative evidence her file was missing.">临床能力强，流行病学方向却单薄。一年国际公益组织的项目评估工作，补上了她档案里最缺的量化证据。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>12</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="evaluation report">份评估报告</span></span>
+            <span class="case__stat"><b>4</b><span data-en="offers">个 offer</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-018">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-018">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A medical undergraduate with abundant clinical exposure and no experience of a dataset.">临床医学本科，见习经历丰富，从没处理过一份数据集。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="An MPH wants quantitative ability; her file showed none.">公共卫生硕士要的是量化能力，她的档案里没有。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Onto an international health NGO’s evaluation team, responsible for analysing a screening programme’s coverage.">进入一个国际卫生公益组织的评估团队，负责一个筛查项目覆盖率的分析。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first report was returned by the organisation: the conclusions exceeded what the data supported.">第一版报告被机构退回：结论超出了数据能支持的范围。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The revised version entered the organisation’s published report. Four offers; she took Emory’s with a scholarship.">修订版进入机构公开报告。四个 offer，选了 Emory 的奖学金。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms eng" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/johns-hopkins.svg" alt="Johns Hopkins University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Hangzhou · 985 university · Biomedical Engineering">杭州 · 985 本科 · 生物医学工程</p>
+          <h3 class="case__result">Johns Hopkins University</h3>
+          <p class="case__prog" data-en="Biomedical Engineering · MSE">生物医学工程 · 硕士</p>
+          <p class="case__quote" data-en="An imaging-analysis pipeline built for a hospital collaboration, documented well enough that the clinical team kept using it after she left.">为一项医院合作搭建的影像分析流程，文档写得足够好——她离开后，临床团队仍在使用。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>10</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="clinical tool">个临床工具</span></span>
+            <span class="case__stat"><b>3</b><span data-en="offers">个 offer</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-019">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-019">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Many course projects, none ever used by a real user.">课程项目很多，没有一个被真实用户用过。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="What was missing was the experience of delivering to someone else.">缺的是"交付给别人"的经历。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote neuroimaging-segmentation project: make the model work on another hospital’s data.">远程神经影像分割课题，任务是让模型在另一家医院的数据上也能用。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first two attempts at cross-site generalisation failed; accuracy fell by thirty percent.">跨中心泛化前两版全部失败，准确率掉了三成。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The third version was adopted by the clinical team. Admitted to Johns Hopkins.">第三版被临床团队采用。录取霍普金斯。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms eng" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/cmu.svg" alt="Carnegie Mellon University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Hong Kong · local university · Design">香港 · 港校本科 · 设计</p>
+          <h3 class="case__result">Carnegie Mellon University</h3>
+          <p class="case__prog" data-en="Human–Computer Interaction · MHCI">人机交互 · 硕士</p>
+          <p class="case__quote" data-en="A design graduate with a beautiful portfolio and not one piece that had been user-tested. In fourteen weeks she ran fourteen tests.">设计专业出身，作品集很美，没有一件经过用户测试。十四周里她做了十四次测试。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>14</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>14</b><span data-en="user tests">次用户测试</span></span>
+            <span class="case__stat"><b>1</b><span data-en="test report">份测试报告</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-020">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-020">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A design degree, a polished portfolio, every piece premised on “I think users will use it this way”.">设计本科，作品集精美，全部是"我觉得用户会这样用"。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="HCI programmes look for evidence, not taste.">HCI 项目看的是证据，不是审美。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A remote assistive-technology project: a voice-navigation interface for blind users, with a real user test every week.">远程辅助技术课题：为视障用户做语音导航界面，每周一次真实用户测试。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="In the first test neither participant completed the task. She cried, then rebuilt it.">第一次测试，两位被试都没能完成任务。她哭了，然后重做。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The fourteenth-week version was completed independently by both participants. Admitted to CMU.">第十四周的版本被两位被试独立完成。录取 CMU。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms phys" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/eth.svg" alt="ETH Zurich" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Wuhan · 985 university · Physics">武汉 · 985 本科 · 物理</p>
+          <h3 class="case__result">ETH Zurich</h3>
+          <p class="case__prog" data-en="Physics · MSc">物理 · 硕士</p>
+          <p class="case__quote" data-en="Excellent theory, never touched an instrument. The mentor had him build a rudimentary cryogenic rig; it took two months, and then he finally understood where noise comes from.">理论很好，从没摸过仪器。导师让他自己搭一台简易低温测量装置，他花了两个月，然后终于懂了噪声从哪来。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>20</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>1</b><span data-en="home-built rig">台自制装置</span></span>
+            <span class="case__stat"><b>1</b><span data-en="noise spectrum">份噪声谱</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-021">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-021">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Top 5% in physics, all theory, one failed laboratory course.">物理系前 5%，全部是理论课，一次实验课挂了。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="European master’s programmes want to see hands.">欧洲的硕士项目要看动手。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="On site over the summer in a condensed-matter laboratory: build the rig first, then transport measurements on 2D materials.">暑期在地进入凝聚态实验室，先搭装置，再做二维材料的输运测量。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The rig’s first version was grounded wrongly; the data was pure 50 Hz noise.">装置第一版接地错误，数据全是 50 Hz 噪声。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="A noise-characterisation document. Admitted to ETH.">一份噪声表征文档。录取 ETH。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="ms comp" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Master’s">硕士去向</span>
+          <img class="case__crest" src="assets/img/logos/usc.svg" alt="University of Southern California" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Chengdu · 985 university · Software Engineering">成都 · 985 本科 · 软件工程</p>
+          <h3 class="case__result">University of Southern California</h3>
+          <p class="case__prog" data-en="Computer Science · MS">计算机科学 · 硕士</p>
+          <p class="case__quote" data-en="Plenty of coursework, nothing that belonged to him. A robotics laboratory placement produced a module still running in the group’s stack.">课程很多，却没有一样是属于他自己的。一段机器人实验室的经历，产出了一个至今仍在课题组系统里运行的模块。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>8</b><span data-en="months">个月</span></span>
+            <span class="case__stat"><b>1</b><span data-en="merged module">个并入模块</span></span>
+            <span class="case__stat"><b>6</b><span data-en="offers">个 offer</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-022">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-022">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="Software engineering, decent grades, a résumé that was a list of course titles.">软件工程，绩点不错，简历上是一串课程名。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Needed one thing that other people depended on.">需要一件"被别人依赖"的东西。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A hybrid robotics project: an IMU–visual-odometry fusion module.">混合模式机器人课题：IMU 与视觉里程计的融合模块。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The first merge request was rejected: no tests.">模块第一次合并请求被拒，因为没有测试。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The second merge went through. Six offers.">第二次合并通过。六个 offer。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="phd comp" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Doctoral">博士去向</span>
+          <img class="case__crest" src="assets/img/logos/nus.svg" alt="National University of Singapore" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Mainland 211 university · Computer Science">内地 211 本科 · 计算机</p>
+          <h3 class="case__result">National University of Singapore</h3>
+          <p class="case__prog" data-en="Data Science · PhD · Fully funded">数据科学 · 博士 · 全奖</p>
+          <p class="case__quote" data-en="Two rejections applying school-first. Re-ran the search advisor-first, found three groups whose open problems matched his code, and wrote to them.">上一轮按学校投，两度被拒。改按导师检索，锁定三个课题组，逐一去信。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>2</b><span data-en="cycles">个申请季</span></span>
+            <span class="case__stat"><b>3</b><span data-en="advisors contacted">位导师沟通</span></span>
+            <span class="case__stat"><b>2</b><span data-en="funded offers">个全奖</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-023">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-023">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A 211 university, one weak conference paper, rejected the previous cycle.">211 本科，一篇水会议论文，上一季被拒。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="The school-selection logic was wrong. Doctoral admission is decided by advisors.">选校逻辑错了。博士录取是导师决定的。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="A new remote project, its question chosen at the intersection of the three groups he wanted.">一个新的可远程课题，问题选在他想去的三个课题组的交集上。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="Two of three letters went unanswered. The third replied.">三封信两封没回。第三封回了。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Two fully funded offers.">两个全奖 offer。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="phd eng" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Doctoral">博士去向</span>
+          <img class="case__crest" src="assets/img/logos/michigan.svg" alt="University of Michigan" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="US state university · Biomedical Engineering">美国州立大学本科 · 生物医学工程</p>
+          <h3 class="case__result">University of Michigan</h3>
+          <p class="case__prog" data-en="Biomedical Engineering · PhD · Fully funded">生物医学工程 · 博士 · 全奖</p>
+          <p class="case__quote" data-en="An ordinary undergraduate institution, one semester of laboratory experience. Two summers of institute-track work supplied both the technique and the letter.">本科学校普通，实验室经历只有一个学期。两个暑期的长线机构培养，同时补上了技术和那封信。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>2</b><span data-en="summers">个暑期</span></span>
+            <span class="case__stat"><b>1</b><span data-en="first-author paper">篇一作论文</span></span>
+            <span class="case__stat"><b>3</b><span data-en="PhD offers">个博士 offer</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-024">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-024">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A state university, GPA 3.7, one semester in a laboratory.">州立大学，绩点 3.7，一个学期的实验室经历。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Nothing that demonstrated independent research.">没有能证明"能独立做研究"的东西。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="Two summers under the same mentor on a wearable-sensor project, owning the correction algorithm in year two.">两个暑期在同一位导师下做可穿戴传感器课题，第二年独立负责校正算法。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="In year two the algorithm failed on real data, succeeding only in simulation.">第二年的算法在真实数据上失效，只在仿真里成功。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="Retrained on hardware data; a first-author paper in the end. Three doctoral offers.">改用实机数据重训，最终一篇一作论文。三个博士 offer。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--hover case" data-tags="phd phys" data-reveal>
+        <div class="case__top">
+          <span class="pill pill--gold" data-en="Doctoral">博士去向</span>
+          <img class="case__crest" src="assets/img/logos/northwestern.svg" alt="Northwestern University" width="46" height="46" loading="lazy">
+        </div>
+        <div class="case__body">
+          <p class="case__from" data-en="Tianjin · 985 university · Materials">天津 · 985 本科 · 材料</p>
+          <h3 class="case__result">Northwestern University</h3>
+          <p class="case__prog" data-en="Materials Science · PhD · Fully funded">材料科学 · 博士 · 全奖</p>
+          <p class="case__quote" data-en="His recommendation came from a mentor who had rejected his poster three times. The letter described all three rejections.">他的推荐信来自一位退回过他海报三次的导师。那封信写了三次退回的原因。</p>
+          <div class="case__foot">
+            <span class="case__stat"><b>22</b><span data-en="weeks">周</span></span>
+            <span class="case__stat"><b>3</b><span data-en="poster rejections">次海报退回</span></span>
+            <span class="case__stat"><b>1</b><span data-en="detailed letter">封详细推荐信</span></span>
+          </div>
+          <button class="case__toggle" type="button" aria-expanded="false" aria-controls="case-025">
+            <span class="case__toggle-open" data-en="Open the file">展开档案</span>
+            <span class="case__toggle-close" data-en="Close">收起</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+          </button>
+          <div class="case__archive" id="case-025">
+            <dl>
+              <div class="narrative__phase">
+                <dt data-en="Starting point">起点</dt>
+                <dd data-en="A materials undergraduate, good grades, one “tour-style” research experience.">材料本科，成绩好，一段"参观式"科研。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Diagnosis">诊断</dt>
+                <dd data-en="Needed a mentor willing to say no.">需要一位敢说不的导师。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What we changed">调整</dt>
+                <dd data-en="On site in a thin-film group, doing humidity-stability screening.">在地进入一个薄膜课题组，做湿度稳定性筛选。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="What went wrong">受挫</dt>
+                <dd data-en="The poster was returned three times: too little data, wrong figures, overreaching conclusions.">海报被退回三次：数据不够、图不对、结论过头。</dd>
+              </div>
+              <div class="narrative__phase">
+                <dt data-en="Outcome">结果</dt>
+                <dd data-en="The fourth version cleared. The letter recorded the first three. A fully funded place at Northwestern.">第四版放行。推荐信里写了前三次。全奖录取西北大学。</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <p class="case-grid__empty" data-filter-empty hidden data-en="No case files match this filter yet.">当前筛选条件下暂无案例。</p>
     </div>
   </div>
 </section>
+<!-- @/build:cases -->
 
 <!-- @build:records -->
 <!-- ============================ 项目档案 ============================ -->
@@ -1999,7 +3101,7 @@
   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
 </button>
 
-<script src="assets/js/i18n.js"></script>
-<script src="assets/js/site.js"></script>
+<script src="assets/js/i18n.js?v=a59823ed"></script>
+<script src="assets/js/site.js?v=f355f03f"></script>
 </body>
 </html>

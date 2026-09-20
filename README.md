@@ -12,7 +12,7 @@
 .
 ├── index.html            首页
 ├── services.html         服务体系（五条业务线 + 三种委托形态 + 边界声明）
-├── cases.html            成功案例（6 个可筛选案例 + 2 篇深度复盘 + 录取墙）
+├── cases.html            成功案例（25 张可展开案例卡 + 109 条项目档案 + 118 条去向 + 3 篇深度复盘）
 ├── about.html            关于我们 / 工作原则 / 导师阵容 / 联系预约表单
 ├── assets/
 │   ├── css/base.css      设计令牌、reset、排版、按钮、卡片
@@ -63,6 +63,7 @@
 | `content/records.js` | 科研项目档案（课题 / 机构 / 方向 / 周期 / 方式 / 产出） | 109 | 案例页项目档案，首页学科矩阵计数 |
 | `content/destinations.js` | 学员去向（机构 / 项目 / 学段 / 年份 / 备注） | 118 | 案例页录取记录，首页精选 24 + 大字带 + 去向徽记 |
 | `content/faq.js` | 首页 11 条 + 服务页 6 条问答（加长版） | 17 | 两页 FAQ |
+| `content/cases.js` | 成功案例（去向 / 背景 / 引言 / 三项数据 / 五段可展开档案） | 25 | 案例页案例卡与顶部数据条，关于页 CTA 计数 |
 
 改完数据：
 
@@ -79,7 +80,7 @@ git add -A && git commit -m "…" && git push
 
 **属实**：前 5 位导师的姓氏与任职机构（黄 Emory / 杨 Florida / 赵 George Mason / 李 PolyU / 李 NUS）、去向前 6 条（Princeton ×2、Harvard Med 硕士、Berkeley、UW、Buffalo 全奖博士）、办公地点、联系邮箱。
 
-**示例（上线前替换）**：其余 21 位导师、其余 112 条去向、全部 109 条课题、案例页 6 张案例卡与 3 篇深度复盘、首页 6 条评价、服务页一周实况、电话 `+1 (404) 000-0000`、页脚三个法务链接。
+**示例（上线前替换）**：其余 21 位导师、其余 112 条去向、全部 109 条课题、案例页 19 张示例案例卡（前 6 张对应真实去向，但叙事为示例）与 3 篇深度复盘、首页 6 条评价、服务页一周实况、电话 `+1 (404) 000-0000`、页脚三个法务链接。
 
 > **`赵教授 · George Mason University`** —— 你写的是「Georgia Mason」，美国没有这所学校，我按弗吉尼亚州的 **George Mason University** 填了。若指 Georgia State 或 Georgia Tech，把 `content/mentors.js` 里 `inst: 'george-mason'` 改成 `'georgia-state'` 或 `'georgia-tech'` 即可（两所都已在机构表里）。
 
