@@ -533,3 +533,65 @@ html[lang='en'] .compare__row > :last-child .compare__label::after { content: ' 
 .quote__mark { font-family: var(--font-serif); }
 .quote__who { letter-spacing: 0; }
 .epigraph__by { text-transform: none; letter-spacing: 0; font-weight: 600; }
+
+/* ==========================================================================
+   24. Bento 主卡内部：数字组 / 引述 / 脚注
+   ========================================================================== */
+.svc__figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 22px 0;
+  margin-top: 4px;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+.svc__figures b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.04em;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.svc__figures b sup { font-size: .42em; vertical-align: super; -webkit-text-fill-color: var(--gold-500); }
+.svc__figures span {
+  display: block;
+  margin-top: 7px;
+  font-size: .8125rem;
+  line-height: 1.4;
+  color: var(--on-dark-3);
+}
+
+.svc__pull {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.48;
+  letter-spacing: -.005em;
+  color: var(--gold-200);
+}
+
+.svc__note {
+  font-size: .8125rem;
+  line-height: 1.75;
+  color: var(--on-dark-3);
+}
+
+/* 只有 Bento 主卡（深色那张）用这三块；其余小卡不受影响 */
+.grid--3-2 > :not(:first-child) .svc__figures,
+.grid--3-2 > :not(:first-child) .svc__pull,
+.grid--3-2 > :not(:first-child) .svc__note { display: none; }
+
+@media (max-width: 640px) {
+  .svc__figures { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .svc__figures b { font-size: 1.6rem; }
+  .svc__figures span { font-size: .6875rem; }
+}
