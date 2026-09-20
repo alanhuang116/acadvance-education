@@ -469,6 +469,30 @@
     });
   }
 
+  /* ---------- 清理遗留的 Service Worker 与缓存 ----------
+     域名曾短暂挂在 GoDaddy Website Builder 上，它注册过一个 /sw.js。
+     Service Worker 绑定「源」而非 IP，DNS 改了也不会消失，会继续端出旧页面。
+     根治靠站点根目录那份自毁版 /sw.js；这里是第二道保险：
+     只要本页成功加载过一次，就把该源下的 SW 和缓存全部清掉。
+  --------------------------------------------------------------- */
+  function purgeStaleWorkers() {
+    if (!('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.getRegistrations()
+      .then(function (regs) {
+        regs.forEach(function (r) {
+          // 只注销别人留下的；自毁版 sw.js 会自己退场
+          r.unregister();
+        });
+      })
+      .catch(function () { /* 隐私模式下可能抛错，忽略 */ });
+
+    if (window.caches && caches.keys) {
+      caches.keys()
+        .then(function (keys) { keys.forEach(function (k) { caches.delete(k); }); })
+        .catch(function () { /* noop */ });
+    }
+  }
+
   /* ---------- 当前页导航高亮 ---------- */
   function activeNav() {
     var here = location.pathname.split('/').pop() || 'index.html';
@@ -480,7 +504,7 @@
 
   function boot() {
     nav(); burger(); marquee(); reveal(); counters();
-    faq(); filters(); scrollUi(); form(); activeNav(); tilt(); caseArchive(); parallax(); segmented(); stackFlow(); magnetic();
+    faq(); filters(); scrollUi(); form(); activeNav(); tilt(); caseArchive(); parallax(); segmented(); stackFlow(); magnetic(); purgeStaleWorkers();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
